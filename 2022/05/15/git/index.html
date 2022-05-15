@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://example.com/img/git_token_copy.png">
 <meta property="og:image" content="http://example.com/img/hexo_config_git.png">
 <meta property="article:published_time" content="2022-05-14T16:46:12.000Z">
-<meta property="article:modified_time" content="2022-05-15T03:47:01.454Z">
+<meta property="article:modified_time" content="2022-05-15T04:00:23.744Z">
 <meta property="article:author" content="GaoYong">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/img/git_set.png">
@@ -110,7 +110,7 @@
 <li>配置私钥用于ssh登录，其实就是将私钥复制到ssh登录的配置目录</li>
 </ol>
 <p>以上操作的具体步骤和说明，网上较多，这里就不细说了。如果上面的操作都正确的话，就可以测试登录是否正常了，在终端窗口输入以下命令：</p>
-<p>ssh -T <a href="mailto:&#x67;&#x69;&#x74;&#x40;&#103;&#105;&#x74;&#x68;&#x75;&#x62;&#46;&#x63;&#111;&#109;">&#x67;&#x69;&#x74;&#x40;&#103;&#105;&#x74;&#x68;&#x75;&#x62;&#46;&#x63;&#111;&#109;</a></p>
+<p>ssh -T <a href="mailto:&#x67;&#x69;&#116;&#x40;&#103;&#x69;&#116;&#x68;&#117;&#x62;&#46;&#x63;&#111;&#x6d;">&#x67;&#x69;&#116;&#x40;&#103;&#x69;&#116;&#x68;&#117;&#x62;&#46;&#x63;&#111;&#x6d;</a></p>
 <p>如果显示类似内容，那就表示密钥方式访问设置成功</p>
 <p>Hi XXXXXX! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
 <p>显示的内容中，那个XXXXXX应该是你自己的github账户名。</p>
@@ -137,14 +137,14 @@
 <h3 id="三、新建github仓库，配置hexo并发布内容"><a href="#三、新建github仓库，配置hexo并发布内容" class="headerlink" title="三、新建github仓库，配置hexo并发布内容"></a>三、新建github仓库，配置hexo并发布内容</h3><ol>
 <li><p>在github上新建1个仓库，仓库名称是 XXXXXX.github.io ,这里XXXXXX是你自己的github账户名</p>
 </li>
-<li><p>安装hexo的一键发布github软件包，安装命令是 npm install hexo-deployer-git –save</p>
+<li><p>安装hexo的一键发布github软件包，安装命令是 npm install hexo-deployer-git --save</p>
 </li>
 <li><p>打开blog下的 _config.yml 文件，找的deploy部分，按照下图的内容配置发布方式和仓库的url，其中红色覆盖的部分就是刚才生成的token，两块绿色覆盖的都是你的github账户名</p>
 </li>
 </ol>
 <p><img src="/img/hexo_config_git.png" alt="图6"></p>
 <ol start="3">
-<li>使用 hexo g 命令生成博客内容 ，在用 hexo d 命令发布到github上，如果发布成功，过个几秒钟，你就可以用 XXXXXX.github.io 的网址访问你的博客了，以后如果你有新的博客内容，要更新发布也是依次用这两个命令就可以了</li>
+<li>使用 hexo g 命令生成博客内容 ，在用 hexo d 命令发布到github上，如果发布成功，过十几秒钟，你就可以用 XXXXXX.github.io 的网址访问你的博客了，以后如果你有新的博客内容，要更新发布也是依次用这两个命令就可以了</li>
 </ol>
 <h4 id="需要注意的是，现在github在国内访问有的时候不太稳定，以上过程如果有连接方面的问题，可能就需要自己找下国内访问比较稳定的方式了。"><a href="#需要注意的是，现在github在国内访问有的时候不太稳定，以上过程如果有连接方面的问题，可能就需要自己找下国内访问比较稳定的方式了。" class="headerlink" title="需要注意的是，现在github在国内访问有的时候不太稳定，以上过程如果有连接方面的问题，可能就需要自己找下国内访问比较稳定的方式了。"></a>需要注意的是，现在github在国内访问有的时候不太稳定，以上过程如果有连接方面的问题，可能就需要自己找下国内访问比较稳定的方式了。</h4><p>最后还有一点关于图片的说明，如果有图片的话，需要在source目录下建目录，例如：image，然后将图片都放在这个目录中，在博客内容中，可以用md格式引用图片，可以用 image&#x2F;图片文件名 的方式引用,例如: image&#x2F;hexo_config.png</p>
 
