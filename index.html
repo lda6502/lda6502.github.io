@@ -93,12 +93,52 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>我们在本机搭建好个人博客网站后，如果希望别人也能看到，就需要发布到网上，这里我们使用github来发布我们的博客内容。在使用github发布博客内容之前，我们需要首先注册github的账户，并且设置好登录github的登录密钥等。</p>
+        <p>我们在本机搭建好个人博客网站后，如果希望别人也能看到，就需要发布到网上，这里我们使用github来发布我们的博客内容，需要做以下几个方面的工作</p>
+<h3 id="一、注册github账号，配置访问密钥"><a href="#一、注册github账号，配置访问密钥" class="headerlink" title="一、注册github账号，配置访问密钥"></a>一、注册github账号，配置访问密钥</h3><p>在使用github发布博客内容之前，我们需要首先注册github的账户，并且设置好登录github的登录密钥等。github现在已经不支持简单的账户、密码的登录方式了，需要采用密钥方式才能访问，主要需要做的工作是：</p>
+<ol>
+<li>通过ssh-keygen生成ssh访问的公钥和私钥</li>
+<li>登录github网站，在相应的配置页面将公钥粘贴复制到你的账户上</li>
+<li>配置私钥用于ssh登录，其实就是将私钥复制到ssh登录的配置目录</li>
+</ol>
+<h2 id="以上操作的具体步骤和说明，网上较多，这里就不细说了。如果上面的操作都正确的话，就可以测试登录是否正常了，在终端窗口输入以下命令："><a href="#以上操作的具体步骤和说明，网上较多，这里就不细说了。如果上面的操作都正确的话，就可以测试登录是否正常了，在终端窗口输入以下命令：" class="headerlink" title="以上操作的具体步骤和说明，网上较多，这里就不细说了。如果上面的操作都正确的话，就可以测试登录是否正常了，在终端窗口输入以下命令："></a>以上操作的具体步骤和说明，网上较多，这里就不细说了。如果上面的操作都正确的话，就可以测试登录是否正常了，在终端窗口输入以下命令：</h2><h2 id="ssh-T-103-x69-x74-x40-x67-x69-x74-104-117-98-x2e-99-111-x6d"><a href="#ssh-T-103-x69-x74-x40-x67-x69-x74-104-117-98-x2e-99-111-x6d" class="headerlink" title="ssh -T &#103;&#x69;&#x74;&#x40;&#x67;&#x69;&#x74;&#104;&#117;&#98;&#x2e;&#99;&#111;&#x6d;"></a>ssh -T <a href="mailto:&#103;&#x69;&#x74;&#x40;&#x67;&#x69;&#x74;&#104;&#117;&#98;&#x2e;&#99;&#111;&#x6d;">&#103;&#x69;&#x74;&#x40;&#x67;&#x69;&#x74;&#104;&#117;&#98;&#x2e;&#99;&#111;&#x6d;</a></h2><h2 id="如果显示类似内容，那就表示密钥方式访问设置成功"><a href="#如果显示类似内容，那就表示密钥方式访问设置成功" class="headerlink" title="如果显示类似内容，那就表示密钥方式访问设置成功"></a>如果显示类似内容，那就表示密钥方式访问设置成功</h2><h2 id="Hi-XXXXXX-You’ve-successfully-authenticated-but-GitHub-does-not-provide-shell-access"><a href="#Hi-XXXXXX-You’ve-successfully-authenticated-but-GitHub-does-not-provide-shell-access" class="headerlink" title="Hi XXXXXX! You’ve successfully authenticated, but GitHub does not provide shell access."></a>Hi XXXXXX! You’ve successfully authenticated, but GitHub does not provide shell access.</h2><p>显示的内容中，那个XXXXXX应该是你自己的github账户名。</p>
+<h3 id="二、生成和配置hexo访问github的令牌"><a href="#二、生成和配置hexo访问github的令牌" class="headerlink" title="二、生成和配置hexo访问github的令牌"></a>二、生成和配置hexo访问github的令牌</h3><ol>
+<li>点击github网页右上角的个人配置图标，在下拉菜单中选择Settings，就是下图红框标注的那个位置</li>
+</ol>
+<p><img src="/img/git_set.png" alt="图1"></p>
+<ol start="2">
+<li>在最左边的网页选项中（在最下面一项）点击 Developer settings，就是下图红框标注的位置</li>
+</ol>
+<p><img src="/img/git_dev_set.png" alt="图2"></p>
+<ol start="3">
+<li>在进入的页面中，选择最左边的 Personal access tokens 选项，然后点击右上角的 Generate new token 选项，就是下图红框标注的2个地方</li>
+</ol>
+<p><img src="/img/git_token.png" alt="图3"></p>
+<ol start="4">
+<li>在token生成的页面输入必要的选项，然后点击最下面的 Generate token 按钮，需要输入的选项主要有3个，第一个是token的备注，随便输入就可以，第二个是token的有效期，默认是30天，就是说30天后还要重新生成和配置，可以把这个时间设置长一点，甚至设置为永久生效，当然安全性要受点影响，第3个是勾选token的使用范围，勾选第一个 repo 就可以了，具体见下图红框标注的3个地方</li>
+</ol>
+<p><img src="/img/git_gen_token.png" alt="图4"></p>
+<ol start="5">
+<li>最后复制生成的token，就是下图红框覆盖的部分，hexo用这个token就可以把我们本地的博客发布到github了</li>
+</ol>
+<p><img src="/img/git_token_copy.png" alt="图5"></p>
+<h3 id="三、新建github仓库，配置hexo并发布内容"><a href="#三、新建github仓库，配置hexo并发布内容" class="headerlink" title="三、新建github仓库，配置hexo并发布内容"></a>三、新建github仓库，配置hexo并发布内容</h3><ol>
+<li><p>在github上新建1个仓库，仓库名称是 XXXXXX.github.io ,这里XXXXXX是你自己的github账户名</p>
+</li>
+<li><p>安装hexo的一键发布github软件包，安装命令是 npm install hexo-deployer-git –save</p>
+</li>
+<li><p>打开blog下的 _config.yml 文件，找的deploy部分，按照下图的内容配置发布方式和仓库的url，其中红色覆盖的部分就是刚才生成的token，两块绿色覆盖的都是你的github账户名</p>
+</li>
+</ol>
+<p><img src="/img/hexo_config_git.png" alt="图6"></p>
+<ol start="3">
+<li>使用 hexo g 命令生成博客内容 ，在用 hexo d 命令发布到github上，如果发布成功，过个几秒钟，你就可以用 XXXXXX.github.io 的网址访问你的博客了，以后如果你有新的博客内容，要更新发布也是依次用这两个命令就可以了</li>
+</ol>
+<h4 id="需要注意的是，现在github在国内访问有的时候不太稳定，以上过程如果有连接方面的问题，可能就需要自己找下国内访问比较稳定的方式了。"><a href="#需要注意的是，现在github在国内访问有的时候不太稳定，以上过程如果有连接方面的问题，可能就需要自己找下国内访问比较稳定的方式了。" class="headerlink" title="需要注意的是，现在github在国内访问有的时候不太稳定，以上过程如果有连接方面的问题，可能就需要自己找下国内访问比较稳定的方式了。"></a>需要注意的是，现在github在国内访问有的时候不太稳定，以上过程如果有连接方面的问题，可能就需要自己找下国内访问比较稳定的方式了。</h4><p>最后还有一点关于图片的说明，如果有图片的话，需要在source目录下建目录，例如：image，然后将图片都放在这个目录中，在博客内容中，可以用md格式引用图片，可以用 image&#x2F;图片文件名 的方式引用,例如: image&#x2F;hexo_config.png</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/05/15/git/" data-id="cl36417i20000jki5dnqr7wvu" data-title="使用github发布个人博客" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/05/15/git/" data-id="cl363oiju0001kzi5aqzmhq8y" data-title="使用github发布个人博客" class="article-share-link">分享</a>
       
       
       
@@ -152,7 +192,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/05/14/edit/" data-id="cl363htp20002d9i5e5wxhwlh" data-title="个人博客的使用网站的使用" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/05/14/edit/" data-id="cl35yc3zn0000kzi568uzf444" data-title="个人博客的使用网站的使用" class="article-share-link">分享</a>
       
       
       
@@ -203,7 +243,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/05/14/hexo/" data-id="cl363htoy0000d9i56zq6ezm5" data-title="hexo的简单介绍和使用" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/05/14/hexo/" data-id="cl35kyi2m0000dei55l3zfnkr" data-title="hexo的简单介绍和使用" class="article-share-link">分享</a>
       
       
       
@@ -253,7 +293,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/05/14/start/" data-id="cl363htp10001d9i53rdc7u95" data-title="关于个人博客网站的搭建" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2022/05/14/start/" data-id="cl35cn5pq0002bfi5f2cv1aev" data-title="关于个人博客网站的搭建" class="article-share-link">分享</a>
       
       
       
