@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>常用的vim命令备忘 | 起点技术</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="在linux环境下，如果我们需要一个方便的文本编辑器，vim是个很好的选择，主要的好处是非常轻量化，而且系统都预装了，直接就可以用，适合写点配置文件之类的，直接用来写代码也是没有问题的。vim不好的地方就是如果不是经常用的话，很多编辑命令实际上很容易忘记，下面把常用的命令整理备忘。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用的vim命令备忘">
+<meta property="og:url" content="http://example.com/2022/05/15/vim/index.html">
+<meta property="og:site_name" content="起点技术">
+<meta property="og:description" content="在linux环境下，如果我们需要一个方便的文本编辑器，vim是个很好的选择，主要的好处是非常轻量化，而且系统都预装了，直接就可以用，适合写点配置文件之类的，直接用来写代码也是没有问题的。vim不好的地方就是如果不是经常用的话，很多编辑命令实际上很容易忘记，下面把常用的命令整理备忘。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-05-15T06:23:50.000Z">
+<meta property="article:modified_time" content="2022-05-22T07:10:29.462Z">
+<meta property="article:author" content="GaoYong">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="起点技术" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">起点技术</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">一些计算机技术初学者可能需要了解的知识、备忘信息和其他内容</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-vim" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/05/15/vim/" class="article-date">
+  <time class="dt-published" datetime="2022-05-15T06:23:50.000Z" itemprop="datePublished">2022-05-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8/">文本编辑器</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      常用的vim命令备忘
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>在linux环境下，如果我们需要一个方便的文本编辑器，vim是个很好的选择，主要的好处是非常轻量化，而且系统都预装了，直接就可以用，适合写点配置文件之类的，直接用来写代码也是没有问题的。vim不好的地方就是如果不是经常用的话，很多编辑命令实际上很容易忘记，下面把常用的命令整理备忘。</p>
+<span id="more"></span>
+<h3 id="普通模式的命令-按Esc进入普通模式，在该模式下的各种命令如下："><a href="#普通模式的命令-按Esc进入普通模式，在该模式下的各种命令如下：" class="headerlink" title="普通模式的命令,按Esc进入普通模式，在该模式下的各种命令如下："></a>普通模式的命令,按Esc进入普通模式，在该模式下的各种命令如下：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">命令		说明</span><br><span class="line">^		移动到行头</span><br><span class="line">$		移动到行尾</span><br><span class="line">x		删除游标所在的字符</span><br><span class="line">3x		删除3个连续字符，以此类推</span><br><span class="line">X		删除游标所在的前一个字符</span><br><span class="line">dd		删除整行</span><br><span class="line">2dd		向下删除2行，以此类推</span><br><span class="line">d^		删除至行首</span><br><span class="line">d$或D		删除至行尾</span><br><span class="line">dG		删除到文档结尾处</span><br><span class="line">d1G		删除至文档首部</span><br><span class="line">gg		游标移动到第一行</span><br><span class="line">=G		自动格式缩进</span><br><span class="line">G		游标移动到最后一行</span><br><span class="line">nG		游标移动到第n行（如果默认没有显示行号，请先进入命令行模式，输入:set nu以显示行号）</span><br><span class="line">yy		复制游标所在的整行</span><br><span class="line">3yy		向下复制3行，以此类推</span><br><span class="line">y^		复制至行首，不含光标所在处字符</span><br><span class="line">y$		复制至行尾，含光标所在处字符</span><br><span class="line">p		粘贴至光标后</span><br><span class="line">P		粘贴至光标前</span><br><span class="line">u(n)		撤销一次或n次操作</span><br><span class="line">&lt;&lt;		光标行左缩进</span><br><span class="line">&gt;&gt;		光标行右缩进</span><br><span class="line">/字符串 回车	向下查找(进入查找之后，输入n和N可以继续查找，n是查找下一个内容，N查找上一个内容，命令行模式下输入noh回车可取消搜索)</span><br><span class="line">?字符串 回车	向上查找(进入查找之后，输入n和N可以继续查找，n是查找下一个内容，N查找上一个内容，命令行模式下输入noh回车可取消搜索)</span><br><span class="line">.		重复刚才的命令操作</span><br></pre></td></tr></table></figure>
+
+<h3 id="普通模式进入插入模式的命令"><a href="#普通模式进入插入模式的命令" class="headerlink" title="普通模式进入插入模式的命令"></a>普通模式进入插入模式的命令</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">命令	说明</span><br><span class="line">i	在当前光标处进行编辑</span><br><span class="line">I	在行首插入</span><br><span class="line">A	在行末插入</span><br><span class="line">a	在光标后插入编辑</span><br><span class="line">o	在当前行后插入一个新行</span><br><span class="line">O	在当前行前插入一个新行</span><br><span class="line">cw	替换从光标所在位置到一个单词的结尾字符</span><br></pre></td></tr></table></figure>
+<h3 id="命令行模式的命令"><a href="#命令行模式的命令" class="headerlink" title="命令行模式的命令"></a>命令行模式的命令</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">命令		说明</span><br><span class="line">:q!		强制退出vim，不保存</span><br><span class="line">:q		退出vim</span><br><span class="line">:wq!		强制保存并退出vim</span><br><span class="line">:w &lt;文件路径&gt;	另存为</span><br><span class="line">:x		保存并退出vim</span><br><span class="line">:wq		保存并退出vim</span><br><span class="line">:set nu		显示行号</span><br><span class="line">3yy		向下复制3行，以此类推</span><br><span class="line">yw		复制一个单词</span><br><span class="line">y2w		复制两个单词</span><br><span class="line">yG		复制至文本末</span><br><span class="line">y1G		复制至文本开头</span><br><span class="line">p		粘贴至光标后</span><br><span class="line">P		粘贴至光标前</span><br><span class="line">u(n)		撤销一次或n次操作</span><br><span class="line">ctrl-r		恢复已撤销的操作</span><br></pre></td></tr></table></figure>
+<h3 id="块操作命令"><a href="#块操作命令" class="headerlink" title="块操作命令"></a>块操作命令</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">v		进入行块选择模式,移动光标选择区域</span><br><span class="line">ctrl-v		进入列块选择模式,移动光标选择区域</span><br><span class="line">y		复制块</span><br><span class="line">d		删除块</span><br><span class="line">&lt;		左缩进</span><br><span class="line">&gt;		右缩进</span><br></pre></td></tr></table></figure>
+
+<h3 id="系统剪贴板"><a href="#系统剪贴板" class="headerlink" title="系统剪贴板"></a>系统剪贴板</h3><p>基本上是先输入”和+,然后就是正常的复制粘贴符号</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;+yy		vim中的内容复制到系统剪贴板</span><br><span class="line">&quot;+p		系统剪贴板的内容复制到vim中</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/05/15/vim/" data-id="cl3emztxs0000fni567ml9z77" data-title="常用的vim命令备忘" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/05/19/run/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          linux基础（一）运行程序
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/05/15/git/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">使用github发布个人博客</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo%E5%8D%9A%E5%AE%A2/">hexo博客</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux%E5%9F%BA%E7%A1%80/">linux基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8/">文本编辑器</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/21/path/">linux基础（二）环境变量PATH</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/19/env/">linux基础（三）环境变量</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/19/run/">linux基础（一）运行程序</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/15/vim/">常用的vim命令备忘</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/15/git/">使用github发布个人博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 GaoYong<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

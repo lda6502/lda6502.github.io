@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   
   
-  <title>使用github发布个人博客 | lda6502&#39;s blog</title>
+  <title>使用github发布个人博客 | 起点技术</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="我们在本机搭建好个人博客网站后，如果希望别人也能看到，就需要发布到网上，这里我们使用github来发布我们的博客内容，需要做以下几个方面的工作 一、注册github账号，配置访问密钥在使用github发布博客内容之前，我们需要首先注册github的账户，并且设置好登录github的登录密钥等。github现在已经不支持简单的账户、密码的登录方式了，需要采用密钥方式才能访问，主要需要做的工作是：">
+  <meta name="description" content="我们在本机搭建好个人博客网站后，如果希望别人也能看到，就需要发布到网上，这里我们使用github来发布我们的博客内容，需要做以下几个方面的工作">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用github发布个人博客">
 <meta property="og:url" content="http://example.com/2022/05/15/git/index.html">
-<meta property="og:site_name" content="lda6502&#39;s blog">
-<meta property="og:description" content="我们在本机搭建好个人博客网站后，如果希望别人也能看到，就需要发布到网上，这里我们使用github来发布我们的博客内容，需要做以下几个方面的工作 一、注册github账号，配置访问密钥在使用github发布博客内容之前，我们需要首先注册github的账户，并且设置好登录github的登录密钥等。github现在已经不支持简单的账户、密码的登录方式了，需要采用密钥方式才能访问，主要需要做的工作是：">
+<meta property="og:site_name" content="起点技术">
+<meta property="og:description" content="我们在本机搭建好个人博客网站后，如果希望别人也能看到，就需要发布到网上，这里我们使用github来发布我们的博客内容，需要做以下几个方面的工作">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/git_set.png">
 <meta property="og:image" content="http://example.com/img/git_dev_set.png">
@@ -20,12 +20,12 @@
 <meta property="og:image" content="http://example.com/img/git_token_copy.png">
 <meta property="og:image" content="http://example.com/img/hexo_config_git.png">
 <meta property="article:published_time" content="2022-05-14T16:46:12.000Z">
-<meta property="article:modified_time" content="2022-05-15T04:00:23.744Z">
+<meta property="article:modified_time" content="2022-05-22T07:09:16.562Z">
 <meta property="article:author" content="GaoYong">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/img/git_set.png">
   
-    <link rel="alternate" href="/atom.xml" title="lda6502's blog" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="起点技术" type="application/atom+xml">
   
   
     <link rel="shortcut icon" href="/favicon.png">
@@ -53,8 +53,12 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">lda6502&#39;s blog</a>
+        <a href="/" id="logo">起点技术</a>
       </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">一些计算机技术初学者可能需要了解的知识、备忘信息和其他内容</a>
+        </h2>
       
     </div>
     <div id="header-inner" class="inner">
@@ -86,6 +90,10 @@
   <time class="dt-published" datetime="2022-05-14T16:46:12.000Z" itemprop="datePublished">2022-05-15</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/hexo%E5%8D%9A%E5%AE%A2/">hexo博客</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -103,6 +111,7 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p>我们在本机搭建好个人博客网站后，如果希望别人也能看到，就需要发布到网上，这里我们使用github来发布我们的博客内容，需要做以下几个方面的工作</p>
+<span id="more"></span>
 <h3 id="一、注册github账号，配置访问密钥"><a href="#一、注册github账号，配置访问密钥" class="headerlink" title="一、注册github账号，配置访问密钥"></a>一、注册github账号，配置访问密钥</h3><p>在使用github发布博客内容之前，我们需要首先注册github的账户，并且设置好登录github的登录密钥等。github现在已经不支持简单的账户、密码的登录方式了，需要采用密钥方式才能访问，主要需要做的工作是：</p>
 <ol>
 <li>通过ssh-keygen生成ssh访问的公钥和私钥</li>
@@ -110,7 +119,7 @@
 <li>配置私钥用于ssh登录，其实就是将私钥复制到ssh登录的配置目录</li>
 </ol>
 <p>以上操作的具体步骤和说明，网上较多，这里就不细说了。如果上面的操作都正确的话，就可以测试登录是否正常了，在终端窗口输入以下命令：</p>
-<p>ssh -T <a href="mailto:&#x67;&#x69;&#116;&#x40;&#103;&#x69;&#116;&#x68;&#117;&#x62;&#46;&#x63;&#111;&#x6d;">&#x67;&#x69;&#116;&#x40;&#103;&#x69;&#116;&#x68;&#117;&#x62;&#46;&#x63;&#111;&#x6d;</a></p>
+<p>ssh -T <a href="mailto:&#103;&#105;&#116;&#x40;&#103;&#x69;&#x74;&#x68;&#117;&#98;&#x2e;&#99;&#111;&#x6d;">&#103;&#105;&#116;&#x40;&#103;&#x69;&#x74;&#x68;&#117;&#98;&#x2e;&#99;&#111;&#x6d;</a></p>
 <p>如果显示类似内容，那就表示密钥方式访问设置成功</p>
 <p>Hi XXXXXX! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
 <p>显示的内容中，那个XXXXXX应该是你自己的github账户名。</p>
@@ -146,8 +155,7 @@
 <ol start="3">
 <li>使用 hexo g 命令生成博客内容 ，在用 hexo d 命令发布到github上，如果发布成功，过十几秒钟，你就可以用 XXXXXX.github.io 的网址访问你的博客了，以后如果你有新的博客内容，要更新发布也是依次用这两个命令就可以了</li>
 </ol>
-<h4 id="需要注意的是，现在github在国内访问有的时候不太稳定，以上过程如果有连接方面的问题，可能就需要自己找下国内访问比较稳定的方式了。"><a href="#需要注意的是，现在github在国内访问有的时候不太稳定，以上过程如果有连接方面的问题，可能就需要自己找下国内访问比较稳定的方式了。" class="headerlink" title="需要注意的是，现在github在国内访问有的时候不太稳定，以上过程如果有连接方面的问题，可能就需要自己找下国内访问比较稳定的方式了。"></a>需要注意的是，现在github在国内访问有的时候不太稳定，以上过程如果有连接方面的问题，可能就需要自己找下国内访问比较稳定的方式了。</h4><p>最后还有一点关于图片的说明，如果有图片的话，需要在source目录下建目录，例如：image，然后将图片都放在这个目录中，在博客内容中，可以用md格式引用图片，可以用 image&#x2F;图片文件名 的方式引用,例如: image&#x2F;hexo_config.png</p>
-
+<h4 id="需要注意的是，现在github在国内访问有的时候不太稳定，以上过程如果有连接方面的问题，可能就需要自己找下国内访问比较稳定的方式了。"><a href="#需要注意的是，现在github在国内访问有的时候不太稳定，以上过程如果有连接方面的问题，可能就需要自己找下国内访问比较稳定的方式了。" class="headerlink" title="需要注意的是，现在github在国内访问有的时候不太稳定，以上过程如果有连接方面的问题，可能就需要自己找下国内访问比较稳定的方式了。"></a>需要注意的是，现在github在国内访问有的时候不太稳定，以上过程如果有连接方面的问题，可能就需要自己找下国内访问比较稳定的方式了。</h4>
       
     </div>
     <footer class="article-footer">
@@ -161,10 +169,19 @@
     
 <nav id="article-nav">
   
+    <a href="/2022/05/15/vim/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          常用的vim命令备忘
+        
+      </div>
+    </a>
+  
   
     <a href="/2022/05/14/edit/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">后一篇</strong>
-      <div class="article-nav-title">个人博客的使用网站的使用</div>
+      <div class="article-nav-title">个人博客网站的使用</div>
     </a>
   
 </nav>
@@ -178,6 +195,13 @@
           <aside id="sidebar">
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo%E5%8D%9A%E5%AE%A2/">hexo博客</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux%E5%9F%BA%E7%A1%80/">linux基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8/">文本编辑器</a></li></ul>
+    </div>
+  </div>
+
 
   
     
@@ -202,19 +226,23 @@
       <ul>
         
           <li>
+            <a href="/2022/05/21/path/">linux基础（二）环境变量PATH</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/19/env/">linux基础（三）环境变量</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/19/run/">linux基础（一）运行程序</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/15/vim/">常用的vim命令备忘</a>
+          </li>
+        
+          <li>
             <a href="/2022/05/15/git/">使用github发布个人博客</a>
-          </li>
-        
-          <li>
-            <a href="/2022/05/14/edit/">个人博客的使用网站的使用</a>
-          </li>
-        
-          <li>
-            <a href="/2022/05/14/hexo/">hexo的简单介绍和使用</a>
-          </li>
-        
-          <li>
-            <a href="/2022/05/14/start/">关于个人博客网站的搭建</a>
           </li>
         
       </ul>
