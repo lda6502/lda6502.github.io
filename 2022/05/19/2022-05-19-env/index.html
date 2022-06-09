@@ -19,34 +19,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lda6502.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="我们在本机搭建好个人博客网站后，如果希望别人也能看到，就需要发布到网上，这里我们使用github来发布我们的博客内容，需要做以下几个方面的工作">
+    <meta name="description" content="我们之前介绍了 PATH 这个环境变量，知道它可以控制有哪些目录中的文件可以直接输入文件名运行，那环境变量到底是啥？还有哪些其他的环境变量？如何让环境变量的设置长期生效，不会因为退出终端窗口而失效？下面我们就主要来讲讲这个问题。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用github发布个人博客">
-<meta property="og:url" content="http://lda6502.github.io/2022/05/15/git/index.html">
+<meta property="og:title" content="linux基础（三）环境变量">
+<meta property="og:url" content="http://lda6502.github.io/2022/05/19/2022-05-19-env/index.html">
 <meta property="og:site_name" content="起点">
-<meta property="og:description" content="我们在本机搭建好个人博客网站后，如果希望别人也能看到，就需要发布到网上，这里我们使用github来发布我们的博客内容，需要做以下几个方面的工作">
+<meta property="og:description" content="我们之前介绍了 PATH 这个环境变量，知道它可以控制有哪些目录中的文件可以直接输入文件名运行，那环境变量到底是啥？还有哪些其他的环境变量？如何让环境变量的设置长期生效，不会因为退出终端窗口而失效？下面我们就主要来讲讲这个问题。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://lda6502.github.io/img/git_set.png">
-<meta property="og:image" content="http://lda6502.github.io/img/git_dev_set.png">
-<meta property="og:image" content="http://lda6502.github.io/img/git_token.png">
-<meta property="og:image" content="http://lda6502.github.io/img/git_gen_token.png">
-<meta property="og:image" content="http://lda6502.github.io/img/git_token_copy.png">
-<meta property="og:image" content="http://lda6502.github.io/img/hexo_config_git.png">
-<meta property="article:published_time" content="2022-05-14T16:46:12.000Z">
-<meta property="article:modified_time" content="2022-05-22T07:09:16.562Z">
+<meta property="article:published_time" content="2022-05-19T14:39:08.000Z">
+<meta property="article:modified_time" content="2022-05-22T07:42:45.183Z">
 <meta property="article:author" content="GaoYong">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://lda6502.github.io/img/git_set.png">
 
 
-<link rel="canonical" href="http://lda6502.github.io/2022/05/15/git/">
+<link rel="canonical" href="http://lda6502.github.io/2022/05/19/2022-05-19-env/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://lda6502.github.io/2022/05/15/git/","path":"2022/05/15/git/","title":"使用github发布个人博客"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://lda6502.github.io/2022/05/19/2022-05-19-env/","path":"2022/05/19/2022-05-19-env/","title":"linux基础（三）环境变量"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>使用github发布个人博客 | 起点</title>
+<title>linux基础（三）环境变量 | 起点</title>
   
 
 
@@ -122,7 +115,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%B3%A8%E5%86%8Cgithub%E8%B4%A6%E5%8F%B7%EF%BC%8C%E9%85%8D%E7%BD%AE%E8%AE%BF%E9%97%AE%E5%AF%86%E9%92%A5"><span class="nav-number">1.</span> <span class="nav-text">一、注册github账号，配置访问密钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%94%9F%E6%88%90%E5%92%8C%E9%85%8D%E7%BD%AEhexo%E8%AE%BF%E9%97%AEgithub%E7%9A%84%E4%BB%A4%E7%89%8C"><span class="nav-number">2.</span> <span class="nav-text">二、生成和配置hexo访问github的令牌</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%96%B0%E5%BB%BAgithub%E4%BB%93%E5%BA%93%EF%BC%8C%E9%85%8D%E7%BD%AEhexo%E5%B9%B6%E5%8F%91%E5%B8%83%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">三、新建github仓库，配置hexo并发布内容</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E6%98%AF%EF%BC%8C%E7%8E%B0%E5%9C%A8github%E5%9C%A8%E5%9B%BD%E5%86%85%E8%AE%BF%E9%97%AE%E6%9C%89%E7%9A%84%E6%97%B6%E5%80%99%E4%B8%8D%E5%A4%AA%E7%A8%B3%E5%AE%9A%EF%BC%8C%E4%BB%A5%E4%B8%8A%E8%BF%87%E7%A8%8B%E5%A6%82%E6%9E%9C%E6%9C%89%E8%BF%9E%E6%8E%A5%E6%96%B9%E9%9D%A2%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E5%8F%AF%E8%83%BD%E5%B0%B1%E9%9C%80%E8%A6%81%E8%87%AA%E5%B7%B1%E6%89%BE%E4%B8%8B%E5%9B%BD%E5%86%85%E8%AE%BF%E9%97%AE%E6%AF%94%E8%BE%83%E7%A8%B3%E5%AE%9A%E7%9A%84%E6%96%B9%E5%BC%8F%E4%BA%86%E3%80%82"><span class="nav-number">3.1.</span> <span class="nav-text">需要注意的是，现在github在国内访问有的时候不太稳定，以上过程如果有连接方面的问题，可能就需要自己找下国内访问比较稳定的方式了。</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%85%B3%E4%BA%8E-bash"><span class="nav-number">1.</span> <span class="nav-text">一、关于 bash</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%85%B3%E4%BA%8E%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">2.</span> <span class="nav-text">二、关于环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">3.</span> <span class="nav-text">三、如何设置环境变量</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -135,7 +128,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -185,7 +178,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/05/15/git/">
+    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/05/19/2022-05-19-env/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -198,12 +191,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="使用github发布个人博客 | 起点">
+      <meta itemprop="name" content="linux基础（三）环境变量 | 起点">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          使用github发布个人博客
+          linux基础（三）环境变量
         </h1>
 
         <div class="post-meta-container">
@@ -214,14 +207,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-05-15 00:46:12" itemprop="dateCreated datePublished" datetime="2022-05-15T00:46:12+08:00">2022-05-15</time>
+      <time title="创建时间：2022-05-19 22:39:08" itemprop="dateCreated datePublished" datetime="2022-05-19T22:39:08+08:00">2022-05-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-22 15:09:16" itemprop="dateModified" datetime="2022-05-22T15:09:16+08:00">2022-05-22</time>
+      <time title="修改时间：2022-05-22 15:42:45" itemprop="dateModified" datetime="2022-05-22T15:42:45+08:00">2022-05-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -229,7 +222,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/hexo%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">hexo博客</span></a>
+          <a href="/categories/linux%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">linux基础</span></a>
         </span>
     </span>
 
@@ -250,52 +243,33 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>我们在本机搭建好个人博客网站后，如果希望别人也能看到，就需要发布到网上，这里我们使用github来发布我们的博客内容，需要做以下几个方面的工作</p>
+        <p>我们之前介绍了 PATH 这个环境变量，知道它可以控制有哪些目录中的文件可以直接输入文件名运行，那环境变量到底是啥？还有哪些其他的环境变量？如何让环境变量的设置长期生效，不会因为退出终端窗口而失效？下面我们就主要来讲讲这个问题。</p>
 <span id="more"></span>
-<h3 id="一、注册github账号，配置访问密钥"><a href="#一、注册github账号，配置访问密钥" class="headerlink" title="一、注册github账号，配置访问密钥"></a>一、注册github账号，配置访问密钥</h3><p>在使用github发布博客内容之前，我们需要首先注册github的账户，并且设置好登录github的登录密钥等。github现在已经不支持简单的账户、密码的登录方式了，需要采用密钥方式才能访问，主要需要做的工作是：</p>
-<ol>
-<li>通过ssh-keygen生成ssh访问的公钥和私钥</li>
-<li>登录github网站，在相应的配置页面将公钥粘贴复制到你的账户上</li>
-<li>配置私钥用于ssh登录，其实就是将私钥复制到ssh登录的配置目录</li>
-</ol>
-<p>以上操作的具体步骤和说明，网上较多，这里就不细说了。如果上面的操作都正确的话，就可以测试登录是否正常了，在终端窗口输入以下命令：</p>
-<p>ssh -T <a href="mailto:&#x67;&#x69;&#116;&#x40;&#103;&#x69;&#116;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#116;&#x40;&#103;&#x69;&#116;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
-<p>如果显示类似内容，那就表示密钥方式访问设置成功</p>
-<p>Hi XXXXXX! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
-<p>显示的内容中，那个XXXXXX应该是你自己的github账户名。</p>
-<h3 id="二、生成和配置hexo访问github的令牌"><a href="#二、生成和配置hexo访问github的令牌" class="headerlink" title="二、生成和配置hexo访问github的令牌"></a>二、生成和配置hexo访问github的令牌</h3><ol>
-<li>点击github网页右上角的个人配置图标，在下拉菜单中选择Settings，就是下图红框标注的那个位置</li>
-</ol>
-<p><img src="/img/git_set.png" alt="图1"></p>
-<ol start="2">
-<li>在最左边的网页选项中（在最下面一项）点击 Developer settings，就是下图红框标注的位置</li>
-</ol>
-<p><img src="/img/git_dev_set.png" alt="图2"></p>
-<ol start="3">
-<li>在进入的页面中，选择最左边的 Personal access tokens 选项，然后点击右上角的 Generate new token 选项，就是下图红框标注的2个地方</li>
-</ol>
-<p><img src="/img/git_token.png" alt="图3"></p>
-<ol start="4">
-<li>在token生成的页面输入必要的选项，然后点击最下面的 Generate token 按钮，需要输入的选项主要有3个，第一个是token的备注，随便输入就可以，第二个是token的有效期，默认是30天，就是说30天后还要重新生成和配置，可以把这个时间设置长一点，甚至设置为永久生效，当然安全性要受点影响，第3个是勾选token的使用范围，勾选第一个 repo 就可以了，具体见下图红框标注的3个地方</li>
-</ol>
-<p><img src="/img/git_gen_token.png" alt="图4"></p>
-<ol start="5">
-<li>最后复制生成的token，就是下图红框覆盖的部分，hexo用这个token就可以把我们本地的博客发布到github了</li>
-</ol>
-<p><img src="/img/git_token_copy.png" alt="图5"></p>
-<h3 id="三、新建github仓库，配置hexo并发布内容"><a href="#三、新建github仓库，配置hexo并发布内容" class="headerlink" title="三、新建github仓库，配置hexo并发布内容"></a>三、新建github仓库，配置hexo并发布内容</h3><ol>
-<li><p>在github上新建1个仓库，仓库名称是 XXXXXX.github.io ,这里XXXXXX是你自己的github账户名</p>
+<p>首先，我们看看在没有把当前目录加入到 PATH 环境变量前，之前直接执行当前目录下的 a.out 文件，系统报错的信息“bash: a.out:command not found” ，意思是命令没有找到，具体原因我们之前已经说过了，现在我们来看看之前没有说的前面的 bash 是什么意思。</p>
+<h3 id="一、关于-bash"><a href="#一、关于-bash" class="headerlink" title="一、关于 bash"></a>一、关于 bash</h3><ul>
+<li><p>bash其实也是一个程序，这个错误就是bash报出来的，其实你可能已经猜到了，命令行模式下，所有的操作都是这个名字叫 bash 的程序在处理，其实命令行的这个界面就是 bash 这个程序的运行结果，当你在图形界面点击打开终端窗口，启动命令行模式的时候，这个程序就开始运行了，它在运行期间显示了命令行的界面，接受用户的输入，按照用户输入执行相应的处理，在你输入 exit 退出窗口关闭命令行操作的时候，这个程序就终止运行了。</p>
 </li>
-<li><p>安装hexo的一键发布github软件包，安装命令是 npm install hexo-deployer-git --save</p>
+<li><p>bash有图形界面下的版本，也有纯字符模式的版本，除了显示的差异外（图形界面是以独立窗口形式出现，纯字符模式是占满整屏的终端模式），所有的功能和操作都几乎是相同的。</p>
 </li>
-<li><p>打开blog下的 _config.yml 文件，找的deploy部分，按照下图的内容配置发布方式和仓库的url，其中红色覆盖的部分就是刚才生成的token，两块绿色覆盖的都是你的github账户名</p>
+<li><p>bash接受的用户输入，也就是你在命令行模式下输入的任何内容，它按照空格分割，生成一个字符串数组（这个数组其实就是c语言中，main函数的输入参数），这个数组的第一项就是命令，后面的其他项是命令的参数，对命令来说主要就是两种处理方式：</p>
+<ul>
+<li>内部命令，首先检查是不是bash直接支持的命令，例如：exit、export等，如果是的话，这个命令就是内部命令，按照bash对这个命令的定义，执行相应的操作</li>
+<li>如果不是内部命令，就视为一个外部命令，也就是说是一个外部的可执行的程序，如果把这个外部命令视为完整的路径，并存在对应的可执行程序的话，就运行这个程序，完成外部命令的执行，如果这个外部命令不是一个有效的路径，或者说这个路径下没有对应的可执行程序，就将其视为可执行程序的文件名，然后按照 PATH 环境变量的设置，在 PATH 中定义的多个路径中搜索是否存在这个可执行程序，如果存在就运行这个程序，不存在就报错了。</li>
+</ul>
 </li>
-</ol>
-<p><img src="/img/hexo_config_git.png" alt="图6"></p>
-<ol start="3">
-<li>使用 hexo g 命令生成博客内容 ，在用 hexo d 命令发布到github上，如果发布成功，过十几秒钟，你就可以用 XXXXXX.github.io 的网址访问你的博客了，以后如果你有新的博客内容，要更新发布也是依次用这两个命令就可以了</li>
-</ol>
-<h4 id="需要注意的是，现在github在国内访问有的时候不太稳定，以上过程如果有连接方面的问题，可能就需要自己找下国内访问比较稳定的方式了。"><a href="#需要注意的是，现在github在国内访问有的时候不太稳定，以上过程如果有连接方面的问题，可能就需要自己找下国内访问比较稳定的方式了。" class="headerlink" title="需要注意的是，现在github在国内访问有的时候不太稳定，以上过程如果有连接方面的问题，可能就需要自己找下国内访问比较稳定的方式了。"></a>需要注意的是，现在github在国内访问有的时候不太稳定，以上过程如果有连接方面的问题，可能就需要自己找下国内访问比较稳定的方式了。</h4>
+<li><p>bash支持的内部命令 ，实际上非常多，涉及变量和字符串处理、循环和条件语句等，你可以理解为这些内部命令一起组成了一种特殊的<strong>编程语言</strong>，我们平时在命令行输入的时候，都是只输入和执行单条命令，其实完全是可以把多个内、外部命令组合起来实现一个特定的功能，其实这种命令的组合就是一个程序，这种程序我们通常称之为shell脚本，操作系统的很多功能其实都是用这种shell脚本编写的，具体的情况这里我们就不细说了，可以查阅相关文档。</p>
+</li>
+</ul>
+<h3 id="二、关于环境变量"><a href="#二、关于环境变量" class="headerlink" title="二、关于环境变量"></a>二、关于环境变量</h3><ul>
+<li><p>了解bash之后，关于环境变量其实就很好理解了，环境变量本质上就是bash脚本语言的变量，不过这个变量的作用范围一般只在当前的bash程序运行范围内，如果执行外部命令，运行其他程序的时候，这些变量就失效了，例如：PATH&#x3D;.&#x2F; 其实也是可以设置PATH的值为当前目录，这样我们也可以直接输入文件名运行当前目录下的程序，但是这样赋值后，如果你运行一个外部命令，这个变量的值它是取不到的，而通常来说，我们希望执行的外部命令能够读取当前这个bash的某些变量的值，例如 PATH，这个时候我们执行 export PATH&#x3D;.&#x2F; ,实现的功能就是让PATH这个变量能被外部命令（也就是在这个命令行启动运行的程序，即子进程）也能访问，所以export的功能相当于让某个变量的作用范围全局化（能被后续的子进程读取）。所以简单来说，用export让子进程也能访问的bash的变量就是环境变量。</p>
+</li>
+<li><p>为什么需要环境变量？主要原因是我们在编写复杂程序的时候，面临运行环境的变化，或者程序的功能配置，我们当然可以用一个配置文件来处理，但是环境变量也是一种简单方便的设置方式，所以有些程序会使用环境变量进行一些基本的设置。</p>
+</li>
+<li><p>还有哪些环境变量？环境变量实际上就像我们在编写程序的时候定义变量一样，是可以任意设置的，具体有哪些环境变量，与你实际需要运行的程序有关，而且这些程序需要设置的环境变量名还不能冲突（PATH这种大家共用的变量不能算冲突）</p>
+</li>
+</ul>
+<h3 id="三、如何设置环境变量"><a href="#三、如何设置环境变量" class="headerlink" title="三、如何设置环境变量"></a>三、如何设置环境变量</h3><p>如果我们临时运行一个程序，需要定义某个环境变量的值，可以直接用export进行定义，但是如果这个程序是后续需要长期运行的时候，一般我们会使用 .bashrc 这个文件，这是一个隐藏文件，在用户的主目录中，用 ls -a 可以看到，相当于你的命令行的配置文件，这个 .bashrc 的文件内容，实际上就是一个shell脚本，每次你登陆自己的帐户或者打开新的命令行窗口时，这个脚本就会被执行，你可以新建或者修改这个文件的内容，用export在这里定义或者修改环境变量，就可以在后续直接使用了。在使用 .bashrc 定义环境变量前，注意系统之前可能已经定义了大量的环境变量，可以直接用不带参数的 export命令，查看现有的环境变量，并注意不要影响现有的内容，否则其他用到的程序就有可能受影响。</p>
+
     </div>
 
     
@@ -312,7 +286,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://lda6502.github.io/2022/05/15/git/" title="使用github发布个人博客">http://lda6502.github.io/2022/05/15/git/</a>
+      <a href="http://lda6502.github.io/2022/05/19/2022-05-19-env/" title="linux基础（三）环境变量">http://lda6502.github.io/2022/05/19/2022-05-19-env/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -325,13 +299,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/05/14/edit/" rel="prev" title="个人博客网站的使用">
-                  <i class="fa fa-chevron-left"></i> 个人博客网站的使用
+                <a href="/2022/05/19/2022-05-21-run/" rel="prev" title="linux基础（一）运行程序">
+                  <i class="fa fa-chevron-left"></i> linux基础（一）运行程序
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/05/15/vim/" rel="next" title="常用的vim命令备忘">
-                  常用的vim命令备忘 <i class="fa fa-chevron-right"></i>
+                <a href="/2022/05/21/2022-05-21-path/" rel="next" title="linux基础（二）环境变量PATH">
+                  linux基础（二）环境变量PATH <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

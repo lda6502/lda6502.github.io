@@ -19,27 +19,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lda6502.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="我们之前介绍了 PATH 这个环境变量，知道它可以控制有哪些目录中的文件可以直接输入文件名运行，那环境变量到底是啥？还有哪些其他的环境变量？如何让环境变量的设置长期生效，不会因为退出终端窗口而失效？下面我们就主要来讲讲这个问题。">
+    <meta name="description" content="我们使用hexo完成博客网站的搭建后，就可以编写新的博客了，下面我们的所有说明都假设我们的博客目录是blog，我们执行所有的命令都是在这个目录内。其实在我们完成博客网站的搭建后，通过浏览器已经可以看到我们的默认的博客网站和一篇hello world的博客，在正式使用前，我们可以做一点必要的设置，包括我们博客网站的名字和描述之类的，在我们的blog目录中，有个 _config.yml 文件，用文本">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux基础（三）环境变量">
-<meta property="og:url" content="http://lda6502.github.io/2022/05/19/env/index.html">
+<meta property="og:title" content="个人博客网站的使用">
+<meta property="og:url" content="http://lda6502.github.io/2022/05/14/2022-05-14-edit/index.html">
 <meta property="og:site_name" content="起点">
-<meta property="og:description" content="我们之前介绍了 PATH 这个环境变量，知道它可以控制有哪些目录中的文件可以直接输入文件名运行，那环境变量到底是啥？还有哪些其他的环境变量？如何让环境变量的设置长期生效，不会因为退出终端窗口而失效？下面我们就主要来讲讲这个问题。">
+<meta property="og:description" content="我们使用hexo完成博客网站的搭建后，就可以编写新的博客了，下面我们的所有说明都假设我们的博客目录是blog，我们执行所有的命令都是在这个目录内。其实在我们完成博客网站的搭建后，通过浏览器已经可以看到我们的默认的博客网站和一篇hello world的博客，在正式使用前，我们可以做一点必要的设置，包括我们博客网站的名字和描述之类的，在我们的blog目录中，有个 _config.yml 文件，用文本">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-05-19T14:39:08.000Z">
-<meta property="article:modified_time" content="2022-05-22T07:42:45.183Z">
+<meta property="article:published_time" content="2022-05-14T14:16:35.000Z">
+<meta property="article:modified_time" content="2022-05-22T07:08:40.097Z">
 <meta property="article:author" content="GaoYong">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://lda6502.github.io/2022/05/19/env/">
+<link rel="canonical" href="http://lda6502.github.io/2022/05/14/2022-05-14-edit/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://lda6502.github.io/2022/05/19/env/","path":"2022/05/19/env/","title":"linux基础（三）环境变量"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://lda6502.github.io/2022/05/14/2022-05-14-edit/","path":"2022/05/14/2022-05-14-edit/","title":"个人博客网站的使用"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>linux基础（三）环境变量 | 起点</title>
+<title>个人博客网站的使用 | 起点</title>
   
 
 
@@ -102,7 +102,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -115,7 +115,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%85%B3%E4%BA%8E-bash"><span class="nav-number">1.</span> <span class="nav-text">一、关于 bash</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%85%B3%E4%BA%8E%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">2.</span> <span class="nav-text">二、关于环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">3.</span> <span class="nav-text">三、如何设置环境变量</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -128,7 +127,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -178,7 +177,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/05/19/env/">
+    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/05/14/2022-05-14-edit/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -191,12 +190,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="linux基础（三）环境变量 | 起点">
+      <meta itemprop="name" content="个人博客网站的使用 | 起点">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          linux基础（三）环境变量
+          个人博客网站的使用
         </h1>
 
         <div class="post-meta-container">
@@ -207,14 +206,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-05-19 22:39:08" itemprop="dateCreated datePublished" datetime="2022-05-19T22:39:08+08:00">2022-05-19</time>
+      <time title="创建时间：2022-05-14 22:16:35" itemprop="dateCreated datePublished" datetime="2022-05-14T22:16:35+08:00">2022-05-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-22 15:42:45" itemprop="dateModified" datetime="2022-05-22T15:42:45+08:00">2022-05-22</time>
+      <time title="修改时间：2022-05-22 15:08:40" itemprop="dateModified" datetime="2022-05-22T15:08:40+08:00">2022-05-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -222,7 +221,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/linux%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">linux基础</span></a>
+          <a href="/categories/hexo%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">hexo博客</span></a>
         </span>
     </span>
 
@@ -243,32 +242,22 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>我们之前介绍了 PATH 这个环境变量，知道它可以控制有哪些目录中的文件可以直接输入文件名运行，那环境变量到底是啥？还有哪些其他的环境变量？如何让环境变量的设置长期生效，不会因为退出终端窗口而失效？下面我们就主要来讲讲这个问题。</p>
-<span id="more"></span>
-<p>首先，我们看看在没有把当前目录加入到 PATH 环境变量前，之前直接执行当前目录下的 a.out 文件，系统报错的信息“bash: a.out:command not found” ，意思是命令没有找到，具体原因我们之前已经说过了，现在我们来看看之前没有说的前面的 bash 是什么意思。</p>
-<h3 id="一、关于-bash"><a href="#一、关于-bash" class="headerlink" title="一、关于 bash"></a>一、关于 bash</h3><ul>
-<li><p>bash其实也是一个程序，这个错误就是bash报出来的，其实你可能已经猜到了，命令行模式下，所有的操作都是这个名字叫 bash 的程序在处理，其实命令行的这个界面就是 bash 这个程序的运行结果，当你在图形界面点击打开终端窗口，启动命令行模式的时候，这个程序就开始运行了，它在运行期间显示了命令行的界面，接受用户的输入，按照用户输入执行相应的处理，在你输入 exit 退出窗口关闭命令行操作的时候，这个程序就终止运行了。</p>
-</li>
-<li><p>bash有图形界面下的版本，也有纯字符模式的版本，除了显示的差异外（图形界面是以独立窗口形式出现，纯字符模式是占满整屏的终端模式），所有的功能和操作都几乎是相同的。</p>
-</li>
-<li><p>bash接受的用户输入，也就是你在命令行模式下输入的任何内容，它按照空格分割，生成一个字符串数组（这个数组其实就是c语言中，main函数的输入参数），这个数组的第一项就是命令，后面的其他项是命令的参数，对命令来说主要就是两种处理方式：</p>
+        <ul>
+<li>我们使用hexo完成博客网站的搭建后，就可以编写新的博客了，下面我们的所有说明都假设我们的博客目录是blog，我们执行所有的命令都是在这个目录内。<br>其实在我们完成博客网站的搭建后，通过浏览器已经可以看到我们的默认的博客网站和一篇hello world的博客，在正式使用前，我们可以做一点必要的设置，包括我们博客网站的名字和描述之类的，在我们的blog目录中，有个 _config.yml 文件，用文本编辑器修改这个文件的内容，可以对我们的网站进行配置，至少需要对 title和language 这两项设置进行修改，其他的内容如果不了解可以先保持不动，title是设置我们网站的名称，language是设置网站的语言，例如我们的内容是中文，就设置为 zh-CN 。<span id="more"></span></li>
+<li>网站的基本设置完成后，我们就可以新建博客，用命令 hexo init hello ，就可以新建文件名为hello.md的博客，进入blog&#x2F;source&#x2F;_posts 目录中，我们发现除了初始化的时候自动生成的的 hello world的的博客外，新生成了一个 hello.md 的文件，用文本编辑器打开这个文件，可以发现类似如下的内容：</li>
+</ul>
+<p> ---<br> title: hello<br> date: 2022-05-14 12:09:19<br> tags:<br> ---</p>
 <ul>
-<li>内部命令，首先检查是不是bash直接支持的命令，例如：exit、export等，如果是的话，这个命令就是内部命令，按照bash对这个命令的定义，执行相应的操作</li>
-<li>如果不是内部命令，就视为一个外部命令，也就是说是一个外部的可执行的程序，如果把这个外部命令视为完整的路径，并存在对应的可执行程序的话，就运行这个程序，完成外部命令的执行，如果这个外部命令不是一个有效的路径，或者说这个路径下没有对应的可执行程序，就将其视为可执行程序的文件名，然后按照 PATH 环境变量的设置，在 PATH 中定义的多个路径中搜索是否存在这个可执行程序，如果存在就运行这个程序，不存在就报错了。</li>
-</ul>
+<li><p>修改title的内容，就可以编辑博客的标题，其他的部分如果不了解，可以暂时先不动，直接在文本最后开始书写我们自己的博客内容了，博客内容是md格式，如果你没有特殊的格式要求，就直接写成纯文件文件就可以了。如果有兴趣了解md文本的格式设置方法，也可以简单学习点常用的设置方法，具体可以看这个网站 <a target="_blank" rel="noopener" href="http://markdown.com.cn/">http://markdown.com.cn</a> ，博客写好后，保存后，在网页上刷新一下，就可以看到我们刚才写的博客内容了 ，按照这个方法，我们就可以继续写新的博客了。</p>
 </li>
-<li><p>bash支持的内部命令 ，实际上非常多，涉及变量和字符串处理、循环和条件语句等，你可以理解为这些内部命令一起组成了一种特殊的<strong>编程语言</strong>，我们平时在命令行输入的时候，都是只输入和执行单条命令，其实完全是可以把多个内、外部命令组合起来实现一个特定的功能，其实这种命令的组合就是一个程序，这种程序我们通常称之为shell脚本，操作系统的很多功能其实都是用这种shell脚本编写的，具体的情况这里我们就不细说了，可以查阅相关文档。</p>
+<li><p>删除博客 ，找到 blog&#x2F;source&#x2F;_posts 目录中，需要删除的那个博客文件，直接删除这个文件就可以了，刷新网页我们就可以看到这个博客已经删除了。</p>
 </li>
-</ul>
-<h3 id="二、关于环境变量"><a href="#二、关于环境变量" class="headerlink" title="二、关于环境变量"></a>二、关于环境变量</h3><ul>
-<li><p>了解bash之后，关于环境变量其实就很好理解了，环境变量本质上就是bash脚本语言的变量，不过这个变量的作用范围一般只在当前的bash程序运行范围内，如果执行外部命令，运行其他程序的时候，这些变量就失效了，例如：PATH&#x3D;.&#x2F; 其实也是可以设置PATH的值为当前目录，这样我们也可以直接输入文件名运行当前目录下的程序，但是这样赋值后，如果你运行一个外部命令，这个变量的值它是取不到的，而通常来说，我们希望执行的外部命令能够读取当前这个bash的某些变量的值，例如 PATH，这个时候我们执行 export PATH&#x3D;.&#x2F; ,实现的功能就是让PATH这个变量能被外部命令（也就是在这个命令行启动运行的程序，即子进程）也能访问，所以export的功能相当于让某个变量的作用范围全局化（能被后续的子进程读取）。所以简单来说，用export让子进程也能访问的bash的变量就是环境变量。</p>
+<li><p>修改博客 ，同上面找到对应的博客文件，继续编辑这个文件的内容，就可以进行内容的修改了。</p>
 </li>
-<li><p>为什么需要环境变量？主要原因是我们在编写复杂程序的时候，面临运行环境的变化，或者程序的功能配置，我们当然可以用一个配置文件来处理，但是环境变量也是一种简单方便的设置方式，所以有些程序会使用环境变量进行一些基本的设置。</p>
-</li>
-<li><p>还有哪些环境变量？环境变量实际上就像我们在编写程序的时候定义变量一样，是可以任意设置的，具体有哪些环境变量，与你实际需要运行的程序有关，而且这些程序需要设置的环境变量名还不能冲突（PATH这种大家共用的变量不能算冲突）</p>
+<li><p>关于图片，如果有图片的话，需要在blog&#x2F;source目录下建目录，例如：image，然后将图片都放在这个目录中，在博客内容中，可以用md格式引用图片，blog&#x2F;source目录就是引用路径的根目录，例如：要显示blog&#x2F;source&#x2F;image&#x2F;hexo_config.png 的图片,在hexo中，我们用md语法表示为 ![图片示例](&#x2F;image&#x2F;hexo_config.png)，当然我们要在 image目录下在建子目录也是完全没有问题的。</p>
 </li>
 </ul>
-<h3 id="三、如何设置环境变量"><a href="#三、如何设置环境变量" class="headerlink" title="三、如何设置环境变量"></a>三、如何设置环境变量</h3><p>如果我们临时运行一个程序，需要定义某个环境变量的值，可以直接用export进行定义，但是如果这个程序是后续需要长期运行的时候，一般我们会使用 .bashrc 这个文件，这是一个隐藏文件，在用户的主目录中，用 ls -a 可以看到，相当于你的命令行的配置文件，这个 .bashrc 的文件内容，实际上就是一个shell脚本，每次你登陆自己的帐户或者打开新的命令行窗口时，这个脚本就会被执行，你可以新建或者修改这个文件的内容，用export在这里定义或者修改环境变量，就可以在后续直接使用了。在使用 .bashrc 定义环境变量前，注意系统之前可能已经定义了大量的环境变量，可以直接用不带参数的 export命令，查看现有的环境变量，并注意不要影响现有的内容，否则其他用到的程序就有可能受影响。</p>
+<p>好了，现在开始我们就可以愉快的写我们自己的博客，并且在我们本机的浏览器上查看了。</p>
 
     </div>
 
@@ -286,7 +275,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://lda6502.github.io/2022/05/19/env/" title="linux基础（三）环境变量">http://lda6502.github.io/2022/05/19/env/</a>
+      <a href="http://lda6502.github.io/2022/05/14/2022-05-14-edit/" title="个人博客网站的使用">http://lda6502.github.io/2022/05/14/2022-05-14-edit/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -299,13 +288,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/05/19/run/" rel="prev" title="linux基础（一）运行程序">
-                  <i class="fa fa-chevron-left"></i> linux基础（一）运行程序
+                <a href="/2022/05/14/2022-05-14-hexo/" rel="prev" title="hexo的简单介绍和使用">
+                  <i class="fa fa-chevron-left"></i> hexo的简单介绍和使用
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/05/21/path/" rel="next" title="linux基础（二）环境变量PATH">
-                  linux基础（二）环境变量PATH <i class="fa fa-chevron-right"></i>
+                <a href="/2022/05/15/2022-05-15-git/" rel="next" title="使用github发布个人博客">
+                  使用github发布个人博客 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

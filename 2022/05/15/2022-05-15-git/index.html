@@ -19,27 +19,34 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lda6502.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="个人博客可以记录自己学习、工作和生活中的想法、备忘和需要总结的内容，无论从哪个角度来说，都是很有意义，也很有价值的，当然可能会花点点时间，但是长远来看，这点代价（这个看你看问题的角度了，可以认为是代价，也可以认为是学习和个人价值提升的过程）是值得的。如果有写博客的想法，那剩下的问题就是用啥工具来写？写了之后放在哪里？">
+    <meta name="description" content="我们在本机搭建好个人博客网站后，如果希望别人也能看到，就需要发布到网上，这里我们使用github来发布我们的博客内容，需要做以下几个方面的工作">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于个人博客网站的搭建">
-<meta property="og:url" content="http://lda6502.github.io/2022/05/14/start/index.html">
+<meta property="og:title" content="使用github发布个人博客">
+<meta property="og:url" content="http://lda6502.github.io/2022/05/15/2022-05-15-git/index.html">
 <meta property="og:site_name" content="起点">
-<meta property="og:description" content="个人博客可以记录自己学习、工作和生活中的想法、备忘和需要总结的内容，无论从哪个角度来说，都是很有意义，也很有价值的，当然可能会花点点时间，但是长远来看，这点代价（这个看你看问题的角度了，可以认为是代价，也可以认为是学习和个人价值提升的过程）是值得的。如果有写博客的想法，那剩下的问题就是用啥工具来写？写了之后放在哪里？">
+<meta property="og:description" content="我们在本机搭建好个人博客网站后，如果希望别人也能看到，就需要发布到网上，这里我们使用github来发布我们的博客内容，需要做以下几个方面的工作">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-05-14T04:09:19.000Z">
-<meta property="article:modified_time" content="2022-05-22T07:09:05.350Z">
+<meta property="og:image" content="http://lda6502.github.io/img/git_set.png">
+<meta property="og:image" content="http://lda6502.github.io/img/git_dev_set.png">
+<meta property="og:image" content="http://lda6502.github.io/img/git_token.png">
+<meta property="og:image" content="http://lda6502.github.io/img/git_gen_token.png">
+<meta property="og:image" content="http://lda6502.github.io/img/git_token_copy.png">
+<meta property="og:image" content="http://lda6502.github.io/img/hexo_config_git.png">
+<meta property="article:published_time" content="2022-05-14T16:46:12.000Z">
+<meta property="article:modified_time" content="2022-05-22T07:09:16.562Z">
 <meta property="article:author" content="GaoYong">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://lda6502.github.io/img/git_set.png">
 
 
-<link rel="canonical" href="http://lda6502.github.io/2022/05/14/start/">
+<link rel="canonical" href="http://lda6502.github.io/2022/05/15/2022-05-15-git/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://lda6502.github.io/2022/05/14/start/","path":"2022/05/14/start/","title":"关于个人博客网站的搭建"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://lda6502.github.io/2022/05/15/2022-05-15-git/","path":"2022/05/15/2022-05-15-git/","title":"使用github发布个人博客"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>关于个人博客网站的搭建 | 起点</title>
+<title>使用github发布个人博客 | 起点</title>
   
 
 
@@ -102,7 +109,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -115,6 +122,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%B3%A8%E5%86%8Cgithub%E8%B4%A6%E5%8F%B7%EF%BC%8C%E9%85%8D%E7%BD%AE%E8%AE%BF%E9%97%AE%E5%AF%86%E9%92%A5"><span class="nav-number">1.</span> <span class="nav-text">一、注册github账号，配置访问密钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%94%9F%E6%88%90%E5%92%8C%E9%85%8D%E7%BD%AEhexo%E8%AE%BF%E9%97%AEgithub%E7%9A%84%E4%BB%A4%E7%89%8C"><span class="nav-number">2.</span> <span class="nav-text">二、生成和配置hexo访问github的令牌</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%96%B0%E5%BB%BAgithub%E4%BB%93%E5%BA%93%EF%BC%8C%E9%85%8D%E7%BD%AEhexo%E5%B9%B6%E5%8F%91%E5%B8%83%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">三、新建github仓库，配置hexo并发布内容</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E6%98%AF%EF%BC%8C%E7%8E%B0%E5%9C%A8github%E5%9C%A8%E5%9B%BD%E5%86%85%E8%AE%BF%E9%97%AE%E6%9C%89%E7%9A%84%E6%97%B6%E5%80%99%E4%B8%8D%E5%A4%AA%E7%A8%B3%E5%AE%9A%EF%BC%8C%E4%BB%A5%E4%B8%8A%E8%BF%87%E7%A8%8B%E5%A6%82%E6%9E%9C%E6%9C%89%E8%BF%9E%E6%8E%A5%E6%96%B9%E9%9D%A2%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E5%8F%AF%E8%83%BD%E5%B0%B1%E9%9C%80%E8%A6%81%E8%87%AA%E5%B7%B1%E6%89%BE%E4%B8%8B%E5%9B%BD%E5%86%85%E8%AE%BF%E9%97%AE%E6%AF%94%E8%BE%83%E7%A8%B3%E5%AE%9A%E7%9A%84%E6%96%B9%E5%BC%8F%E4%BA%86%E3%80%82"><span class="nav-number">3.1.</span> <span class="nav-text">需要注意的是，现在github在国内访问有的时候不太稳定，以上过程如果有连接方面的问题，可能就需要自己找下国内访问比较稳定的方式了。</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -127,7 +135,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -177,7 +185,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/05/14/start/">
+    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/05/15/2022-05-15-git/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -190,12 +198,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="关于个人博客网站的搭建 | 起点">
+      <meta itemprop="name" content="使用github发布个人博客 | 起点">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          关于个人博客网站的搭建
+          使用github发布个人博客
         </h1>
 
         <div class="post-meta-container">
@@ -206,14 +214,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-05-14 12:09:19" itemprop="dateCreated datePublished" datetime="2022-05-14T12:09:19+08:00">2022-05-14</time>
+      <time title="创建时间：2022-05-15 00:46:12" itemprop="dateCreated datePublished" datetime="2022-05-15T00:46:12+08:00">2022-05-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-22 15:09:05" itemprop="dateModified" datetime="2022-05-22T15:09:05+08:00">2022-05-22</time>
+      <time title="修改时间：2022-05-22 15:09:16" itemprop="dateModified" datetime="2022-05-22T15:09:16+08:00">2022-05-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -242,21 +250,52 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>个人博客可以记录自己学习、工作和生活中的想法、备忘和需要总结的内容，无论从哪个角度来说，都是很有意义，也很有价值的，当然可能会花点点时间，但是长远来看，这点代价（这个看你看问题的角度了，可以认为是代价，也可以认为是学习和个人价值提升的过程）是值得的。<br>如果有写博客的想法，那剩下的问题就是用啥工具来写？写了之后放在哪里？</p>
+        <p>我们在本机搭建好个人博客网站后，如果希望别人也能看到，就需要发布到网上，这里我们使用github来发布我们的博客内容，需要做以下几个方面的工作</p>
 <span id="more"></span>
-<p>如果你不熟悉软件和系统配置，而且也希望尽可能多的人能看到自己写的内容，那就找个博客平台，注册个账号，就在平台上写就行了。使用博客平台，好处是方便，不好的地方是个性化和自主性方面不足。如果你熟悉软件和系统配置，那完全可以搭建个自己个人的博客网站，而且非常的简单和方便，并不会增加多少工作量，下面我们主要就讨论下这个问题。<br>个人博客其实简单的说有个web服务器，把写的内容输出为html格式的网页就可以了。但是先不说大部分人并不熟悉html，就算是非常熟悉，每篇文档都写成html还是太麻烦了一点，还有就是即使是配置个简单的web服务器，也还是有不少的安装、配置和维护的工作量，实际上我们可以用一些简单的办法解决这两个问题。</p>
-<ul>
-<li>关于内容编辑，我们可以直接用hexo这个简单的博客框架，它主要的好处是我们可以直接用markdown格式书写博客，这个框架自动把这些内容转换为静态的html网页，这个过程是自动完成的，而且markdown的使用非常简单，我们用最简单的文本编辑软件就可以编辑md格式的博客内容，当然你要是愿意，也可以找到专门编辑md格式的软件。</li>
-<li>如果我们只是在本机自己用看的话，那用hexo启动博客服务就可以了，如果要发布到网上让其他人也能看到，简单的话可以直接放到github上，hexo提供简单的命令，就可以把本机的内容发布到github上，当然如果你想进一步建立自己的服务器，也是可以的。</li>
-</ul>
-<p>下面是以上说到的工具的相关网址：</p>
-<ul>
-<li>hexo的官方网站,(<a target="_blank" rel="noopener" href="https://hexo.io/">https://hexo.io</a>)</li>
-<li>github提供的网站托管空间,(<a target="_blank" rel="noopener" href="https://github.io/">https://github.io</a>)</li>
-<li>markdown的教程,(<a target="_blank" rel="noopener" href="https://markdown.com.cn/">https://markdown.com.cn</a>)</li>
-</ul>
-<p>后面我们会继续介绍hexo的具体使用方法。</p>
-
+<h3 id="一、注册github账号，配置访问密钥"><a href="#一、注册github账号，配置访问密钥" class="headerlink" title="一、注册github账号，配置访问密钥"></a>一、注册github账号，配置访问密钥</h3><p>在使用github发布博客内容之前，我们需要首先注册github的账户，并且设置好登录github的登录密钥等。github现在已经不支持简单的账户、密码的登录方式了，需要采用密钥方式才能访问，主要需要做的工作是：</p>
+<ol>
+<li>通过ssh-keygen生成ssh访问的公钥和私钥</li>
+<li>登录github网站，在相应的配置页面将公钥粘贴复制到你的账户上</li>
+<li>配置私钥用于ssh登录，其实就是将私钥复制到ssh登录的配置目录</li>
+</ol>
+<p>以上操作的具体步骤和说明，网上较多，这里就不细说了。如果上面的操作都正确的话，就可以测试登录是否正常了，在终端窗口输入以下命令：</p>
+<p>ssh -T <a href="mailto:&#103;&#x69;&#116;&#64;&#103;&#x69;&#x74;&#x68;&#117;&#x62;&#x2e;&#99;&#x6f;&#x6d;">&#103;&#x69;&#116;&#64;&#103;&#x69;&#x74;&#x68;&#117;&#x62;&#x2e;&#99;&#x6f;&#x6d;</a></p>
+<p>如果显示类似内容，那就表示密钥方式访问设置成功</p>
+<p>Hi XXXXXX! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
+<p>显示的内容中，那个XXXXXX应该是你自己的github账户名。</p>
+<h3 id="二、生成和配置hexo访问github的令牌"><a href="#二、生成和配置hexo访问github的令牌" class="headerlink" title="二、生成和配置hexo访问github的令牌"></a>二、生成和配置hexo访问github的令牌</h3><ol>
+<li>点击github网页右上角的个人配置图标，在下拉菜单中选择Settings，就是下图红框标注的那个位置</li>
+</ol>
+<p><img src="/img/git_set.png" alt="图1"></p>
+<ol start="2">
+<li>在最左边的网页选项中（在最下面一项）点击 Developer settings，就是下图红框标注的位置</li>
+</ol>
+<p><img src="/img/git_dev_set.png" alt="图2"></p>
+<ol start="3">
+<li>在进入的页面中，选择最左边的 Personal access tokens 选项，然后点击右上角的 Generate new token 选项，就是下图红框标注的2个地方</li>
+</ol>
+<p><img src="/img/git_token.png" alt="图3"></p>
+<ol start="4">
+<li>在token生成的页面输入必要的选项，然后点击最下面的 Generate token 按钮，需要输入的选项主要有3个，第一个是token的备注，随便输入就可以，第二个是token的有效期，默认是30天，就是说30天后还要重新生成和配置，可以把这个时间设置长一点，甚至设置为永久生效，当然安全性要受点影响，第3个是勾选token的使用范围，勾选第一个 repo 就可以了，具体见下图红框标注的3个地方</li>
+</ol>
+<p><img src="/img/git_gen_token.png" alt="图4"></p>
+<ol start="5">
+<li>最后复制生成的token，就是下图红框覆盖的部分，hexo用这个token就可以把我们本地的博客发布到github了</li>
+</ol>
+<p><img src="/img/git_token_copy.png" alt="图5"></p>
+<h3 id="三、新建github仓库，配置hexo并发布内容"><a href="#三、新建github仓库，配置hexo并发布内容" class="headerlink" title="三、新建github仓库，配置hexo并发布内容"></a>三、新建github仓库，配置hexo并发布内容</h3><ol>
+<li><p>在github上新建1个仓库，仓库名称是 XXXXXX.github.io ,这里XXXXXX是你自己的github账户名</p>
+</li>
+<li><p>安装hexo的一键发布github软件包，安装命令是 npm install hexo-deployer-git --save</p>
+</li>
+<li><p>打开blog下的 _config.yml 文件，找的deploy部分，按照下图的内容配置发布方式和仓库的url，其中红色覆盖的部分就是刚才生成的token，两块绿色覆盖的都是你的github账户名</p>
+</li>
+</ol>
+<p><img src="/img/hexo_config_git.png" alt="图6"></p>
+<ol start="3">
+<li>使用 hexo g 命令生成博客内容 ，在用 hexo d 命令发布到github上，如果发布成功，过十几秒钟，你就可以用 XXXXXX.github.io 的网址访问你的博客了，以后如果你有新的博客内容，要更新发布也是依次用这两个命令就可以了</li>
+</ol>
+<h4 id="需要注意的是，现在github在国内访问有的时候不太稳定，以上过程如果有连接方面的问题，可能就需要自己找下国内访问比较稳定的方式了。"><a href="#需要注意的是，现在github在国内访问有的时候不太稳定，以上过程如果有连接方面的问题，可能就需要自己找下国内访问比较稳定的方式了。" class="headerlink" title="需要注意的是，现在github在国内访问有的时候不太稳定，以上过程如果有连接方面的问题，可能就需要自己找下国内访问比较稳定的方式了。"></a>需要注意的是，现在github在国内访问有的时候不太稳定，以上过程如果有连接方面的问题，可能就需要自己找下国内访问比较稳定的方式了。</h4>
     </div>
 
     
@@ -273,7 +312,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://lda6502.github.io/2022/05/14/start/" title="关于个人博客网站的搭建">http://lda6502.github.io/2022/05/14/start/</a>
+      <a href="http://lda6502.github.io/2022/05/15/2022-05-15-git/" title="使用github发布个人博客">http://lda6502.github.io/2022/05/15/2022-05-15-git/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -286,10 +325,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2022/05/14/2022-05-14-edit/" rel="prev" title="个人博客网站的使用">
+                  <i class="fa fa-chevron-left"></i> 个人博客网站的使用
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/05/14/hexo/" rel="next" title="hexo的简单介绍和使用">
-                  hexo的简单介绍和使用 <i class="fa fa-chevron-right"></i>
+                <a href="/2022/05/15/2022-05-21-vim/" rel="next" title="常用的vim命令备忘">
+                  常用的vim命令备忘 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

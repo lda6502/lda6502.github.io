@@ -123,7 +123,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -172,7 +172,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/06/07/disk-replace/">
+    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/06/09/huggingface-datasets-offline/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -190,7 +190,99 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/06/07/disk-replace/" class="post-title-link" itemprop="url">无需重装系统的硬盘升级方法</a>
+          <a href="/2022/06/09/huggingface-datasets-offline/" class="post-title-link" itemprop="url">huggingface数据集的本地使用方法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-06-09 23:55:11" itemprop="dateCreated datePublished" datetime="2022-06-09T23:55:11+08:00">2022-06-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-06-10 00:45:33" itemprop="dateModified" datetime="2022-06-10T00:45:33+08:00">2022-06-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>huggingface最初是因为transformers库变得流行，后面慢慢发展，已经集成了很多模型和数据集，这些模型和数据集可以直接从网上加载，并cache到本地，不过huggingface的cache为了尽量降低使用门槛，屏蔽了很多细节，由于众所周知的原因，国内访问这些模型和数据集的时候，经常会碰到无法访问的问题，而且它默认的加载设置不是中断后续传的方式，只要没有加载完，就又要从头开始。对大点的模型和数据集来说，在国内的网络环境下，这种设置就很要命了。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/06/09/huggingface-datasets-offline/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/06/07/2022-06-07-disk-replace/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GaoYong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="起点">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 起点">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/06/07/2022-06-07-disk-replace/" class="post-title-link" itemprop="url">无需重装系统的硬盘升级方法</a>
         </h2>
 
         <div class="post-meta-container">
@@ -233,7 +325,7 @@
           <p>电脑原配的512G硬盘快满了，准备升级到新的1T硬盘，升级方式是把原来的硬盘直接替换下来，新的硬盘直接插到老硬盘的位置。原硬盘分区比较复杂，有win10的硬盘分区、HP的恢复分区、linux的多个分区（系统分区、交换分区等），启动的时候可以选择启动linux或win10，平时主要用linux，偶尔特殊原因用下win10。如果用重装系统的方式就太麻烦了，需要重装win10和linux两个系统，还有很多驱动和软件都得重新安装或者设置，就想看看能不能不用重装系统来升级硬盘。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/06/07/disk-replace/#more" rel="contents">
+              <a class="btn" href="/2022/06/07/2022-06-07-disk-replace/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -264,7 +356,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/06/05/mac-install/">
+    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/06/05/2022-06-05-mac-install/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -282,7 +374,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/06/05/mac-install/" class="post-title-link" itemprop="url">MacOS的降版本安装</a>
+          <a href="/2022/06/05/2022-06-05-mac-install/" class="post-title-link" itemprop="url">MacOS的降版本安装</a>
         </h2>
 
         <div class="post-meta-container">
@@ -325,7 +417,7 @@
           <p>苹果电脑的MacOS操作系统需要重装的机会很少，正常情况下电脑的使用周期范围内可能都不需用任何的系统重装，只要正常按照升级提示进行安全升级或者新版本升级就可以了。但是一般来说，新的系统对硬件配置要求更高，有时候升级后才发现，自己老的硬件配置带不动新系统的时候，通常就没有后悔药可以吃了，因为苹果系统一般来说并没有给你直接的降级通道，甚至新版本出来后，你在应用商店中都有可能找不到可以下载的老版系统了，这篇文章主要就是讲讲如何降级的问题，当然对于早期的SSD硬盘没有焊死的苹果电脑，如果你需要升级下硬盘，那这篇文章可能也能帮到你。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/06/05/mac-install/#more" rel="contents">
+              <a class="btn" href="/2022/06/05/2022-06-05-mac-install/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -356,7 +448,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/05/28/nlp-url/">
+    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/05/28/2022-05-28-nlp-url/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -374,7 +466,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/28/nlp-url/" class="post-title-link" itemprop="url">NLP相关资料</a>
+          <a href="/2022/05/28/2022-05-28-nlp-url/" class="post-title-link" itemprop="url">NLP相关资料</a>
         </h2>
 
         <div class="post-meta-container">
@@ -435,7 +527,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/05/21/path/">
+    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/05/21/2022-05-21-path/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -453,7 +545,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/21/path/" class="post-title-link" itemprop="url">linux基础（二）环境变量PATH</a>
+          <a href="/2022/05/21/2022-05-21-path/" class="post-title-link" itemprop="url">linux基础（二）环境变量PATH</a>
         </h2>
 
         <div class="post-meta-container">
@@ -496,7 +588,7 @@
           <p>在linux下，要运行一个具有执行权限的可执行文件（有点绕，但这是准确的表达方式），在命令行环境下，直接输入这个文件的完整路径名就可以了，但是有人会说了，不对哦，这个和我们平时看到的情况不一样啊，我们通常运行一个程序，直接输入这个程序的名字就可以了，那这是怎么回事了，那我们就需要说说 PATH 这个环境变量了，<strong>注意这个变量4个字母都是大写</strong>，至于什么是环境变量，我们暂时放一边，后面再说。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/05/21/path/#more" rel="contents">
+              <a class="btn" href="/2022/05/21/2022-05-21-path/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -527,7 +619,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/05/19/env/">
+    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/05/19/2022-05-19-env/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -545,7 +637,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/19/env/" class="post-title-link" itemprop="url">linux基础（三）环境变量</a>
+          <a href="/2022/05/19/2022-05-19-env/" class="post-title-link" itemprop="url">linux基础（三）环境变量</a>
         </h2>
 
         <div class="post-meta-container">
@@ -588,7 +680,7 @@
           <p>我们之前介绍了 PATH 这个环境变量，知道它可以控制有哪些目录中的文件可以直接输入文件名运行，那环境变量到底是啥？还有哪些其他的环境变量？如何让环境变量的设置长期生效，不会因为退出终端窗口而失效？下面我们就主要来讲讲这个问题。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/05/19/env/#more" rel="contents">
+              <a class="btn" href="/2022/05/19/2022-05-19-env/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -619,7 +711,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/05/19/run/">
+    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/05/19/2022-05-21-run/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -637,7 +729,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/19/run/" class="post-title-link" itemprop="url">linux基础（一）运行程序</a>
+          <a href="/2022/05/19/2022-05-21-run/" class="post-title-link" itemprop="url">linux基础（一）运行程序</a>
         </h2>
 
         <div class="post-meta-container">
@@ -680,7 +772,7 @@
           <p>我们在linux的终端窗口下,输入命令或者运行程序的时候,会发现有些程序直接输入程序名就可以运行,有些程序必须要输入完整的路径才行,这到底是怎么回事呢?要把这个事情说清楚，还是需要先了解一点背景知识。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/05/19/run/#more" rel="contents">
+              <a class="btn" href="/2022/05/19/2022-05-21-run/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -711,7 +803,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/05/15/vim/">
+    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/05/15/2022-05-21-vim/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -729,7 +821,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/15/vim/" class="post-title-link" itemprop="url">常用的vim命令备忘</a>
+          <a href="/2022/05/15/2022-05-21-vim/" class="post-title-link" itemprop="url">常用的vim命令备忘</a>
         </h2>
 
         <div class="post-meta-container">
@@ -772,7 +864,7 @@
           <p>在linux环境下，如果我们需要一个方便的文本编辑器，vim是个很好的选择，主要的好处是非常轻量化，而且系统都预装了，直接就可以用，适合写点配置文件之类的，直接用来写代码也是没有问题的。vim不好的地方就是如果不是经常用的话，很多编辑命令实际上很容易忘记，下面把常用的命令整理备忘。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/05/15/vim/#more" rel="contents">
+              <a class="btn" href="/2022/05/15/2022-05-21-vim/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -803,7 +895,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/05/15/git/">
+    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/05/15/2022-05-15-git/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -821,7 +913,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/15/git/" class="post-title-link" itemprop="url">使用github发布个人博客</a>
+          <a href="/2022/05/15/2022-05-15-git/" class="post-title-link" itemprop="url">使用github发布个人博客</a>
         </h2>
 
         <div class="post-meta-container">
@@ -864,7 +956,7 @@
           <p>我们在本机搭建好个人博客网站后，如果希望别人也能看到，就需要发布到网上，这里我们使用github来发布我们的博客内容，需要做以下几个方面的工作</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/05/15/git/#more" rel="contents">
+              <a class="btn" href="/2022/05/15/2022-05-15-git/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -895,7 +987,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/05/14/edit/">
+    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/05/14/2022-05-14-edit/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -913,7 +1005,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/14/edit/" class="post-title-link" itemprop="url">个人博客网站的使用</a>
+          <a href="/2022/05/14/2022-05-14-edit/" class="post-title-link" itemprop="url">个人博客网站的使用</a>
         </h2>
 
         <div class="post-meta-container">
@@ -957,99 +1049,7 @@
 <li>我们使用hexo完成博客网站的搭建后，就可以编写新的博客了，下面我们的所有说明都假设我们的博客目录是blog，我们执行所有的命令都是在这个目录内。<br>其实在我们完成博客网站的搭建后，通过浏览器已经可以看到我们的默认的博客网站和一篇hello world的博客，在正式使用前，我们可以做一点必要的设置，包括我们博客网站的名字和描述之类的，在我们的blog目录中，有个 _config.yml 文件，用文本编辑器修改这个文件的内容，可以对我们的网站进行配置，至少需要对 title和language 这两项设置进行修改，其他的内容如果不了解可以先保持不动，title是设置我们网站的名称，language是设置网站的语言，例如我们的内容是中文，就设置为 zh-CN 。
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/05/14/edit/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/05/14/hexo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="GaoYong">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="起点">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 起点">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/14/hexo/" class="post-title-link" itemprop="url">hexo的简单介绍和使用</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-05-14 16:02:05" itemprop="dateCreated datePublished" datetime="2022-05-14T16:02:05+08:00">2022-05-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-22 15:07:23" itemprop="dateModified" datetime="2022-05-22T15:07:23+08:00">2022-05-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/hexo%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">hexo博客</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>简单来说，我们可以把hexo看成一个md文件的转换和发布工具，就是说我们只需要用markdown写一系列的文档，hexo可以自动帮我们转换为一个静态的网站的内容，hexo同时还提供发布功能，就是在我们本机启动web服务器，让我们可以通过浏览器直接参看我们的博客效果，当然也支持一键发布到github上，这样其他人也可以看到我们的博客内容了。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/05/14/hexo/#more" rel="contents">
+              <a class="btn" href="/2022/05/14/2022-05-14-edit/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>

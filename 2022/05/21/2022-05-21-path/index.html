@@ -19,27 +19,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lda6502.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="简单来说，我们可以把hexo看成一个md文件的转换和发布工具，就是说我们只需要用markdown写一系列的文档，hexo可以自动帮我们转换为一个静态的网站的内容，hexo同时还提供发布功能，就是在我们本机启动web服务器，让我们可以通过浏览器直接参看我们的博客效果，当然也支持一键发布到github上，这样其他人也可以看到我们的博客内容了。">
+    <meta name="description" content="在linux下，要运行一个具有执行权限的可执行文件（有点绕，但这是准确的表达方式），在命令行环境下，直接输入这个文件的完整路径名就可以了，但是有人会说了，不对哦，这个和我们平时看到的情况不一样啊，我们通常运行一个程序，直接输入这个程序的名字就可以了，那这是怎么回事了，那我们就需要说说 PATH 这个环境变量了，注意这个变量4个字母都是大写，至于什么是环境变量，我们暂时放一边，后面再说。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo的简单介绍和使用">
-<meta property="og:url" content="http://lda6502.github.io/2022/05/14/hexo/index.html">
+<meta property="og:title" content="linux基础（二）环境变量PATH">
+<meta property="og:url" content="http://lda6502.github.io/2022/05/21/2022-05-21-path/index.html">
 <meta property="og:site_name" content="起点">
-<meta property="og:description" content="简单来说，我们可以把hexo看成一个md文件的转换和发布工具，就是说我们只需要用markdown写一系列的文档，hexo可以自动帮我们转换为一个静态的网站的内容，hexo同时还提供发布功能，就是在我们本机启动web服务器，让我们可以通过浏览器直接参看我们的博客效果，当然也支持一键发布到github上，这样其他人也可以看到我们的博客内容了。">
+<meta property="og:description" content="在linux下，要运行一个具有执行权限的可执行文件（有点绕，但这是准确的表达方式），在命令行环境下，直接输入这个文件的完整路径名就可以了，但是有人会说了，不对哦，这个和我们平时看到的情况不一样啊，我们通常运行一个程序，直接输入这个程序的名字就可以了，那这是怎么回事了，那我们就需要说说 PATH 这个环境变量了，注意这个变量4个字母都是大写，至于什么是环境变量，我们暂时放一边，后面再说。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-05-14T08:02:05.000Z">
-<meta property="article:modified_time" content="2022-05-22T07:07:23.769Z">
+<meta property="og:image" content="http://lda6502.github.io/img/linux_path.png">
+<meta property="article:published_time" content="2022-05-21T07:48:49.000Z">
+<meta property="article:modified_time" content="2022-05-22T07:18:32.900Z">
 <meta property="article:author" content="GaoYong">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://lda6502.github.io/img/linux_path.png">
 
 
-<link rel="canonical" href="http://lda6502.github.io/2022/05/14/hexo/">
+<link rel="canonical" href="http://lda6502.github.io/2022/05/21/2022-05-21-path/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://lda6502.github.io/2022/05/14/hexo/","path":"2022/05/14/hexo/","title":"hexo的简单介绍和使用"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://lda6502.github.io/2022/05/21/2022-05-21-path/","path":"2022/05/21/2022-05-21-path/","title":"linux基础（二）环境变量PATH"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>hexo的简单介绍和使用 | 起点</title>
+<title>linux基础（二）环境变量PATH | 起点</title>
   
 
 
@@ -127,7 +129,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -177,7 +179,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/05/14/hexo/">
+    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/05/21/2022-05-21-path/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -190,12 +192,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="hexo的简单介绍和使用 | 起点">
+      <meta itemprop="name" content="linux基础（二）环境变量PATH | 起点">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          hexo的简单介绍和使用
+          linux基础（二）环境变量PATH
         </h1>
 
         <div class="post-meta-container">
@@ -206,14 +208,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-05-14 16:02:05" itemprop="dateCreated datePublished" datetime="2022-05-14T16:02:05+08:00">2022-05-14</time>
+      <time title="创建时间：2022-05-21 15:48:49" itemprop="dateCreated datePublished" datetime="2022-05-21T15:48:49+08:00">2022-05-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-22 15:07:23" itemprop="dateModified" datetime="2022-05-22T15:07:23+08:00">2022-05-22</time>
+      <time title="修改时间：2022-05-22 15:18:32" itemprop="dateModified" datetime="2022-05-22T15:18:32+08:00">2022-05-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -221,7 +223,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/hexo%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">hexo博客</span></a>
+          <a href="/categories/linux%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">linux基础</span></a>
         </span>
     </span>
 
@@ -242,20 +244,30 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>简单来说，我们可以把hexo看成一个md文件的转换和发布工具，就是说我们只需要用markdown写一系列的文档，hexo可以自动帮我们转换为一个静态的网站的内容，hexo同时还提供发布功能，就是在我们本机启动web服务器，让我们可以通过浏览器直接参看我们的博客效果，当然也支持一键发布到github上，这样其他人也可以看到我们的博客内容了。</p>
+        <p>在linux下，要运行一个具有执行权限的可执行文件（有点绕，但这是准确的表达方式），在命令行环境下，直接输入这个文件的完整路径名就可以了，但是有人会说了，不对哦，这个和我们平时看到的情况不一样啊，我们通常运行一个程序，直接输入这个程序的名字就可以了，那这是怎么回事了，那我们就需要说说 PATH 这个环境变量了，<strong>注意这个变量4个字母都是大写</strong>，至于什么是环境变量，我们暂时放一边，后面再说。</p>
 <span id="more"></span>
-<p>所以简单的来说，hexo的基本功能是转换md格式的文档，这样就省去了我们写html网页的麻烦，另外在本机实现了一个web服务器的功能，这样即使不上网，我们也可以在本机浏览器查看我们的博客内容了。</p>
-<p>hexo并不提供md文件编写相关的内容，md文件的编写我们可以找自己熟悉的文本编辑器或者其他的专用编辑器。</p>
-<p>hexo是基于nodejs开发的，所以在安装和使用hexo之前，你需要安装nodejs，你可以到官方网站下载和安装 <a target="_blank" rel="noopener" href="https://nodejs.org/">https://nodejs.org</a> ,nodejs安装后，我们需要知道 npm 命令。</p>
-<p>npm ,命令是nodejs的软件包管理工具，就是说基于nodejs的软件包的安装、升级和删除等处理都要用npm来完成，那啥是软件包呢？实现某种功能的完整的程序，我们把它封装在一起，就是一个软件包，例如hexo就是一个软件包。</p>
-<p>使用npm命令，就可以解决我们安装和使用hexo的需求了。下面是hexo安装和初始化的步骤：</p>
-<ol>
-<li>安装hexo软件包，npm install hexo-cli -g ,注意这个命令在linux和mac下执行的时候可能需要root权限，就是说这个命令要么用sudo执行，要么用root用户执行。hexo安装完成后，我们就可以用直接用hexo这个命令完成我们需要的功能了。</li>
-<li>创建和初始化博客目录 ，假如我们希望创建的博客目录是当前目录下，博客的目录名为blog，那创建和初始化的命令就是 hexo init blog，当然如果完全可以使用其他的目录名。</li>
-<li>进入目录，如果我们的目录名为blog，就可以用cd blog进入已经初始化的目录中</li>
-<li>安装hexo需要用到的其他软件，npm install</li>
-<li>启动web服务，hexo server ,web服务会在默认的4000端口启动，在浏览器输入 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a> 就可以看到我们的博客页面了。</li>
-</ol>
+<p>还是用刚才的例子截图来说<br><img src="/img/linux_path.png"></p>
+<ul>
+<li>首先我们还是直接输入 a.out 运行我们的程序，和之前演示的一样，仍然报错</li>
+<li>然后我们执行了一个命令 export PATH&#x3D;.&#x2F;:$PATH ,然后在输入 a.out ,奇迹发生了，这个程序正确运行了，那刚才这个命令到底做了什么呢？</li>
+<li>我们再执行一个命令 echo $PATH ,显示了很多路径名，这些路径名之间用<strong>冒号</strong>分开</li>
+</ul>
+<p>好了，我们来解释一下刚才到底发生了什么。虽然在linux环境下，我们需要输入完整的文件路径，才能执行一个可执行的程序文件，但是如果每次都这样输入，岂不是很麻烦，所以我们有个神奇的环境变量（啥是环境变量？这个我们放后面说）PATH，这个环境变量就是保存了多个用<strong>冒号</strong>分隔的文件路径，在这些路径下的可执行文件，我们就可以直接输入文件名运行它们了，那你可能会说，如果这些路径下有同名的文件会执行哪一个啊，很简单，<strong>你输入的文件名会按照 PATH 环境变量的路径顺序依次查找，所以路径名在前面的那个文件会被执行</strong>。最后我们稍微花点时间说一下以上命令是如何生效的。</p>
+<ul>
+<li>export 命令我们暂时理解（后面会准确说明它的作用）是在命令行下对环境变量赋值的命令</li>
+<li>echo 命令是在命令行下显示文本内容的命令</li>
+<li>$ 符号用来在命令行下引用环境变量内容</li>
+</ul>
+<p>有了上面的说明，我们就可以解释一下上面的命令是如何生效的了</p>
+<ul>
+<li><p>如果执行 export PATH&#x3D;.&#x2F; ，就可以对环境变量 PATH 赋值，将环境变量 PATH 赋值为“.&#x2F;”，这样无论我们在哪个目录，当前目录下的程序文件都可以直接输入文件名进行执行了，但是如果这样的话，你会发现很多原来可以执行的命令都运行不起了，甚至最基本的 ls 命令都无法运行了，因为几乎所有的命令实际上都是一个可以执行的程序文件，而且放在相应的系统目录中，原来 PATH 的值包含这些系统目录，所以我们可以直接输入这些命令运行对应的程序。现在这样赋值后， PATH 的值就不包含这些系统目录了，当然也就没法直接执行系统命令了，我们只能用 &#x2F;usr&#x2F;bin&#x2F;ls 来执行原来的 ls命令了，因为 &#x2F;usr&#x2F;bin 目录下有个 ls 的文件，这个就是 ls 命令对应的程序文件。</p>
+</li>
+<li><p>执行 export PATH&#x3D;.&#x2F;:$PATH ,就可以通过 $ 符号引用原来的PATH变量的内容，新加的当前目录和原来的系统路径中间用<strong>冒号分割</strong>，这样新的 PATH 变量的值相当于在原来的路径前面增加新的一个路径，这个路径就是当前目录，这样既不影响原来的设置，有可以新增当前目录作为可执行程序的路径。当然实际我们也可以把新增的路径放在后面，这样通常更好，因为实际我们执行系统的命令会更多一些。</p>
+</li>
+<li><p>执行 echo $PATH ，其实就是显示当前的环境变量 PATH的值 ，我们可以看到前面就是我们新增加的当前目录，后面就是原来已经有的用<strong>冒号分割开的多个系统路径</strong>，大量的常用的命令其实都是在 &#x2F;usr&#x2F;bin 目录中，我们可以用 ls &#x2F;usr&#x2F;bin 命令看看这个目录中有哪些常用的系统命令。</p>
+</li>
+</ul>
+<p>现在我们就知道 PATH 这个环境变量是如何起作用了，至于到底什么是环境变量，还有刚才的命令新增了程序运行的路径，但是退出终端后，再次进入的时候，刚才的设置都丢失了，如何让设置的效果长期生效呢，这个问题我们放在后面的<strong>环境变量</strong>的介绍中进行说明。</p>
 
     </div>
 
@@ -273,7 +285,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://lda6502.github.io/2022/05/14/hexo/" title="hexo的简单介绍和使用">http://lda6502.github.io/2022/05/14/hexo/</a>
+      <a href="http://lda6502.github.io/2022/05/21/2022-05-21-path/" title="linux基础（二）环境变量PATH">http://lda6502.github.io/2022/05/21/2022-05-21-path/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -286,13 +298,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/05/14/start/" rel="prev" title="关于个人博客网站的搭建">
-                  <i class="fa fa-chevron-left"></i> 关于个人博客网站的搭建
+                <a href="/2022/05/19/2022-05-19-env/" rel="prev" title="linux基础（三）环境变量">
+                  <i class="fa fa-chevron-left"></i> linux基础（三）环境变量
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/05/14/edit/" rel="next" title="个人博客网站的使用">
-                  个人博客网站的使用 <i class="fa fa-chevron-right"></i>
+                <a href="/2022/05/28/2022-05-28-nlp-url/" rel="next" title="NLP相关资料">
+                  NLP相关资料 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
