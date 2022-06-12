@@ -123,13 +123,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
@@ -172,6 +172,98 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/06/10/python-help/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GaoYong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="起点">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 起点">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/06/10/python-help/" class="post-title-link" itemprop="url">python软件包的使用说明及源代码查询</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-06-10 13:46:12" itemprop="dateCreated datePublished" datetime="2022-06-10T13:46:12+08:00">2022-06-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-06-12 17:00:17" itemprop="dateModified" datetime="2022-06-12T17:00:17+08:00">2022-06-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">python基础</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>python语言能够流行，有个很重要的原因就是有大量的第三方的软件包，如果不是使用频率很高的话，使用的时候可能会忘记具体用法，如果我们知道以下两个方法就可以解决这个问题了。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/06/10/python-help/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/06/09/huggingface-datasets-offline/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -190,7 +282,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/06/09/huggingface-datasets-offline/" class="post-title-link" itemprop="url">huggingface数据集的本地使用方法</a>
+          <a href="/2022/06/09/huggingface-datasets-offline/" class="post-title-link" itemprop="url">huggingface资料的断点续传和离线使用的方法</a>
         </h2>
 
         <div class="post-meta-container">
@@ -208,7 +300,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-06-10 00:45:33" itemprop="dateModified" datetime="2022-06-10T00:45:33+08:00">2022-06-10</time>
+      <time title="修改时间：2022-06-12 16:45:58" itemprop="dateModified" datetime="2022-06-12T16:45:58+08:00">2022-06-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -230,7 +322,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>huggingface最初是因为transformers库变得流行，后面慢慢发展，已经集成了很多模型和数据集，这些模型和数据集可以直接从网上加载，并cache到本地，不过huggingface的cache为了尽量降低使用门槛，屏蔽了很多细节，由于众所周知的原因，国内访问这些模型和数据集的时候，经常会碰到无法访问的问题，而且它默认的加载设置不是中断后续传的方式，只要没有加载完，就又要从头开始。对大点的模型和数据集来说，在国内的网络环境下，这种设置就很要命了。</p>
+          <p>huggingface最初是因为transformers库变得流行，后面慢慢发展，已经集成了很多模型和数据集，这些模型和数据集可以直接从网上加载，并cache到本地，不过huggingface的cache为了尽量降低使用门槛，屏蔽了很多细节，由于众所周知的原因，国内访问这些模型和数据集的时候，经常会碰到无法访问的问题，而且它默认的加载设置不是中断后续传的方式，只要没有加载完，就又要从头开始。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/06/09/huggingface-datasets-offline/#more" rel="contents">
@@ -957,99 +1049,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/05/15/2022-05-15-git/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/05/14/2022-05-14-edit/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="GaoYong">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="起点">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 起点">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/14/2022-05-14-edit/" class="post-title-link" itemprop="url">个人博客网站的使用</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-05-14 22:16:35" itemprop="dateCreated datePublished" datetime="2022-05-14T22:16:35+08:00">2022-05-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-22 15:08:40" itemprop="dateModified" datetime="2022-05-22T15:08:40+08:00">2022-05-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/hexo%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">hexo博客</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>我们使用hexo完成博客网站的搭建后，就可以编写新的博客了，下面我们的所有说明都假设我们的博客目录是blog，我们执行所有的命令都是在这个目录内。<br>其实在我们完成博客网站的搭建后，通过浏览器已经可以看到我们的默认的博客网站和一篇hello world的博客，在正式使用前，我们可以做一点必要的设置，包括我们博客网站的名字和描述之类的，在我们的blog目录中，有个 _config.yml 文件，用文本编辑器修改这个文件的内容，可以对我们的网站进行配置，至少需要对 title和language 这两项设置进行修改，其他的内容如果不了解可以先保持不动，title是设置我们网站的名称，language是设置网站的语言，例如我们的内容是中文，就设置为 zh-CN 。
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/05/14/2022-05-14-edit/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
