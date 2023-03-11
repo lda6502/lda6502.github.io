@@ -117,7 +117,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%96%AD%E7%82%B9%E7%BB%AD%E4%BC%A0%E7%9A%84%E6%96%B9%E5%BC%8F%E4%BB%8E%E7%BD%91%E4%B8%8A%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE"><span class="nav-number">1.</span> <span class="nav-text">用断点续传的方式从网上加载数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%86%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BF%9D%E5%AD%98%E5%88%B0%E6%9C%AC%E5%9C%B0%E7%9B%AE%E5%BD%95"><span class="nav-number">2.</span> <span class="nav-text">将数据集保存到本地目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%8A%A0%E8%BD%BD%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">本地加载使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E7%BC%93%E5%AD%98%E7%9B%AE%E5%BD%95%E5%92%8C%E5%85%B6%E4%BB%96%E8%B5%84%E6%96%99"><span class="nav-number">4.</span> <span class="nav-text">关于缓存目录和其他资料</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%96%AD%E7%82%B9%E7%BB%AD%E4%BC%A0%E7%9A%84%E6%96%B9%E5%BC%8F%E4%BB%8E%E7%BD%91%E4%B8%8A%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE"><span class="nav-number">1.</span> <span class="nav-text"> 用断点续传的方式从网上加载数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%86%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BF%9D%E5%AD%98%E5%88%B0%E6%9C%AC%E5%9C%B0%E7%9B%AE%E5%BD%95"><span class="nav-number">2.</span> <span class="nav-text"> 将数据集保存到本地目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%8A%A0%E8%BD%BD%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text"> 本地加载使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E7%BC%93%E5%AD%98%E7%9B%AE%E5%BD%95%E5%92%8C%E5%85%B6%E4%BB%96%E8%B5%84%E6%96%99"><span class="nav-number">4.</span> <span class="nav-text"> 关于缓存目录和其他资料</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -130,7 +130,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -247,37 +247,52 @@
     <div class="post-body" itemprop="articleBody">
         <p>huggingface最初是因为transformers库变得流行，后面慢慢发展，已经集成了很多模型和数据集，这些模型和数据集可以直接从网上加载，并cache到本地，不过huggingface的cache为了尽量降低使用门槛，屏蔽了很多细节，由于众所周知的原因，国内访问这些模型和数据集的时候，经常会碰到无法访问的问题，而且它默认的加载设置不是中断后续传的方式，只要没有加载完，就又要从头开始。</p>
 <span id="more"></span>
-
-<p>对大点的模型和数据集来说，在国内的网络环境下，这种设置就很要命了。即使已经下载并缓存的数据，加载的时候它还是会尝试连接网络，这样会有稍微的停顿。<br>如果我们希望在网络加载的速度不高，或者不稳定的情况下，实现一次下载后的数据能够拷贝后在多台电脑上使用，而且是完全离线的使用，下面提供了一种可行的方案，我们首先以数据集为例说明如何实现。</p>
-<h3 id="用断点续传的方式从网上加载数据"><a href="#用断点续传的方式从网上加载数据" class="headerlink" title="用断点续传的方式从网上加载数据"></a>用断点续传的方式从网上加载数据</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import datasets</span><br><span class="line">downloadConfig=datasets.utils.file_utils.DownloadConfig(resume_download=True)</span><br><span class="line">tweetDataset = datasets.load_dataset(&quot;tweet_eval&quot;,&quot;emoji&quot;,download_config=downloadConfig)</span><br></pre></td></tr></table></figure>
+<p>对大点的模型和数据集来说，在国内的网络环境下，这种设置就很要命了。即使已经下载并缓存的数据，加载的时候它还是会尝试连接网络，这样会有稍微的停顿。<br />
+如果我们希望在网络加载的速度不高，或者不稳定的情况下，实现一次下载后的数据能够拷贝后在多台电脑上使用，而且是完全离线的使用，下面提供了一种可行的方案，我们首先以数据集为例说明如何实现。</p>
+<h3 id="用断点续传的方式从网上加载数据"><a class="markdownIt-Anchor" href="#用断点续传的方式从网上加载数据"></a> 用断点续传的方式从网上加载数据</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import datasets</span><br><span class="line">downloadConfig=datasets.utils.file_utils.DownloadConfig(resume_download=True)</span><br><span class="line">tweetDataset = datasets.load_dataset(&quot;tweet_eval&quot;,&quot;emoji&quot;,download_config=downloadConfig)</span><br></pre></td></tr></table></figure>
 <p>我们用<code>tweet_eval的emoji</code>数据集为例，说明如何设置断点续传方式加载数据，如有网络中断的情况，再次执行就行了。</p>
-<h3 id="将数据集保存到本地目录"><a href="#将数据集保存到本地目录" class="headerlink" title="将数据集保存到本地目录"></a>将数据集保存到本地目录</h3><p>如果我们用上面的语句已经从网络加载了数据集，用<code>tweetDataset.save_to_disk(&quot;tweet_eval&quot;)</code>就可以将数据集保存到当前目录的<code>tweet_eval</code>子目录中了。</p>
-<h3 id="本地加载使用"><a href="#本地加载使用" class="headerlink" title="本地加载使用"></a>本地加载使用</h3><p>下次使用的时候，用<code>tweetDataset=datasets.load_from_disk(&#39;tweet_eval&#39;)</code>就可以从当前目录下的<code>tweet_eval</code>子目录中重新加载数据集了，这个目录的数据直接拷贝后可以在其他的电脑上用类似的方式加载使用，就不需要在使用网络了。不过需要注意的是，有些数据集可能自己定义了特殊的加载方法，有可能还是要去cache目录读取数据，甚至还会从网络加载个别配置数据等，这种情况直接save和load就可能没办法加载本地数据了，需要找到它实际还用了cache目录或网络加载的具体数据，进行个别处理才行。</p>
-<h3 id="关于缓存目录和其他资料"><a href="#关于缓存目录和其他资料" class="headerlink" title="关于缓存目录和其他资料"></a>关于缓存目录和其他资料</h3><p>huggingface只要从网络加载的资料，默认都是会在本地缓存的，包括数据集、模型、评价指标等，默认的缓存目录是<code>~/.cache/huggingface</code></p>
+<h3 id="将数据集保存到本地目录"><a class="markdownIt-Anchor" href="#将数据集保存到本地目录"></a> 将数据集保存到本地目录</h3>
+<p>如果我们用上面的语句已经从网络加载了数据集，用<code>tweetDataset.save_to_disk(&quot;tweet_eval&quot;)</code>就可以将数据集保存到当前目录的<code>tweet_eval</code>子目录中了。</p>
+<h3 id="本地加载使用"><a class="markdownIt-Anchor" href="#本地加载使用"></a> 本地加载使用</h3>
+<p>下次使用的时候，用<code>tweetDataset=datasets.load_from_disk('tweet_eval')</code>就可以从当前目录下的<code>tweet_eval</code>子目录中重新加载数据集了，这个目录的数据直接拷贝后可以在其他的电脑上用类似的方式加载使用，就不需要在使用网络了。不过需要注意的是，有些数据集可能自己定义了特殊的加载方法，有可能还是要去cache目录读取数据，甚至还会从网络加载个别配置数据等，这种情况直接save和load就可能没办法加载本地数据了，需要找到它实际还用了cache目录或网络加载的具体数据，进行个别处理才行。</p>
+<h3 id="关于缓存目录和其他资料"><a class="markdownIt-Anchor" href="#关于缓存目录和其他资料"></a> 关于缓存目录和其他资料</h3>
+<p>huggingface只要从网络加载的资料，默认都是会在本地缓存的，包括数据集、模型、评价指标等，默认的缓存目录是<code>~/.cache/huggingface</code></p>
 <p>这个是个隐藏目录，需要用<code>ls -a ~/.cache/huggingface</code>才能看到</p>
 <p>这个目录一般会缓存4类数据，对应下面4个子目录：</p>
 <ul>
-<li><p>datasets<br>用于缓存数据集，每个数据集对应独立的目录，如果我们已经用前面的方法缓存在自己目录了，如果要避免重复占用空间，这个目录中缓存的数据实际就可以删除了。</p>
+<li>
+<p>datasets<br />
+用于缓存数据集，每个数据集对应独立的目录，如果我们已经用前面的方法缓存在自己目录了，如果要避免重复占用空间，这个目录中缓存的数据实际就可以删除了。</p>
 </li>
-<li><p>metrics<br>用于缓存评价指标，主要是python程序组件，每个评价指标对应独立的目录，实际只有空目录和空文件，真正的程序在对应的modules目录中，这个目录中的内容感觉没什么实际作用。</p>
+<li>
+<p>metrics<br />
+用于缓存评价指标，主要是python程序组件，每个评价指标对应独立的目录，实际只有空目录和空文件，真正的程序在对应的modules目录中，这个目录中的内容感觉没什么实际作用。</p>
 </li>
-<li><p>modules<br>用于缓存程序组件，包括datasets和metrics相关的程序组件都在这个目录中，分别在两个不同的目录中，具体的数据集和评价指标相关的程序组件都在独立的目录中，例如：</p>
+<li>
+<p>modules<br />
+用于缓存程序组件，包括datasets和metrics相关的程序组件都在这个目录中，分别在两个不同的目录中，具体的数据集和评价指标相关的程序组件都在独立的目录中，例如：</p>
+</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import datasets</span><br><span class="line">accuracy=datasets.load_metric(&quot;accuracy&quot;)</span><br></pre></td></tr></table></figure>
-<p>这样就从网络加载了<code>accuracy</code>这个评价指标，在<code>~/.cache/huggingface/modules/datasets_modules/metrics</code><br>目录中就会多个<code>accuracy</code>的目录，里面有个以hash值为目录名的目录，保存的就是相应的程序组件，以我的目录为例，里面的内容如下<br><img src="/img/huggingface-accuracy.png"><br>注意那个hash值的目录名实际可能是不同的值。这个目录下有用的就是<code>accuracy.json</code>和<code>accuracy.py</code>两个文件，把这两个文件拷贝到独立的目录中就可以使用了，例如我们在当前目录建立的<code>metrics/accuracy</code>子目录，把这两个个文件拷贝进去后，就可以这样使用了</p>
+<p>这样就从网络加载了<code>accuracy</code>这个评价指标，在<code>~/.cache/huggingface/modules/datasets_modules/metrics</code><br />
+目录中就会多个<code>accuracy</code>的目录，里面有个以hash值为目录名的目录，保存的就是相应的程序组件，以我的目录为例，里面的内容如下<br />
+<img src="/img/huggingface-accuracy.png" alt="" /><br />
+注意那个hash值的目录名实际可能是不同的值。这个目录下有用的就是<code>accuracy.json</code>和<code>accuracy.py</code>两个文件，把这两个文件拷贝到独立的目录中就可以使用了，例如我们在当前目录建立的<code>metrics/accuracy</code>子目录，把这两个个文件拷贝进去后，就可以这样使用了</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import datasets</span><br><span class="line">accuracy=datasets.load_metric(&quot;./metrics/accuracy&quot;)</span><br></pre></td></tr></table></figure>
 <p>当然如果我们需要经常加载和缓存评价指标，也可以写个函数实现将评估指标缓存到本地指定目录的功能，例如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">import shutil</span><br><span class="line">def save_metric(path,name):</span><br><span class="line">    if not os.path.isdir(path):</span><br><span class="line">        os.mkdir(path)</span><br><span class="line">    path=os.path.join(path,name)</span><br><span class="line">    if not os.path.isdir(path):</span><br><span class="line">        os.mkdir(path)</span><br><span class="line">    cachePath=&quot;~/.cache/huggingface/modules/datasets_modules/metrics&quot;</span><br><span class="line">    cachePath=os.path.expanduser(cachePath)</span><br><span class="line">    cachePath=os.path.join(cachePath,name)</span><br><span class="line">    for n in os.listdir(cachePath):</span><br><span class="line">        p=os.path.join(cachePath,n)</span><br><span class="line">        if os.path.isdir(p):</span><br><span class="line">            fileList=os.listdir(p)</span><br><span class="line">            for suffix in [&quot;py&quot;,&quot;json&quot;]:</span><br><span class="line">                fileName=f&quot;&#123;name&#125;.&#123;suffix&#125;&quot;</span><br><span class="line">                sourPath=os.path.join(p,fileName)</span><br><span class="line">                targetPath=os.path.join(path,fileName)</span><br><span class="line">                if os.path.isfile(sourPath):</span><br><span class="line">                    shutil.copy(sourPath,targetPath)</span><br><span class="line">                    print(f&#x27;copy &#123;sourPath&#125; to &#123;targetPath&#125;&#x27;)</span><br><span class="line">                else:</span><br><span class="line">                    break</span><br></pre></td></tr></table></figure>
 <p>这样如果通过网络加载评估指标后，我们只需要调用这个函数<code>save_metric(&quot;metric&quot;,&quot;accuracy&quot;)</code>就可以将<code>accuracy</code>这个评估指标缓存到<code>metric</code>目录中了，后面使用的时候就可以直接用<code>datasets.load_metric(&quot;metric/accuracy&quot;)</code>就可以直接重新从本地加载了，把这个目录的内容复制到其他电脑上用当然也是没问题的。</p>
-</li>
-<li><p>transformers<br>用于缓存模型和tokenizer等数据，数据缓存后名字直接用的是hash值，所以这个目录中的文件你直接看并不知道是那个文件，例如：我们用下面的代码从网上加载bert模型和tokenizer，都可以直接用resume_download&#x3D;True设置断点续传模式。</p>
+<ul>
+<li>transformers<br />
+用于缓存模型和tokenizer等数据，数据缓存后名字直接用的是hash值，所以这个目录中的文件你直接看并不知道是那个文件，例如：我们用下面的代码从网上加载bert模型和tokenizer，都可以直接用resume_download=True设置断点续传模式。</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from transformers import BertTokenizer, BertModel</span><br><span class="line">tokenizer = BertTokenizer.from_pretrained(&#x27;bert-base-uncased&#x27;,resume_download=True)</span><br><span class="line">model = BertModel.from_pretrained(&quot;bert-base-uncased&quot;,resume_download=True)</span><br></pre></td></tr></table></figure>
 <p>这个语句执行完成后，缓存目录就会有对应的文件（虽然我们不知道文件名的对应关系），用下面的语句就可以把模型和tokenizer保存在本地的<strong>bert-base-uncased-local</strong>目录中</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tokenizer.save_pretrained(&#x27;bert-base-uncased-local&#x27;)</span><br><span class="line">model.save_pretrained(&#x27;bert-base-uncased-local&#x27;)</span><br></pre></td></tr></table></figure>
 <p>下次使用的时候，直接这样就好了</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tokenizer = BertTokenizer.from_pretrained(&#x27;./bert-base-uncased-local&#x27;)</span><br><span class="line">model = BertModel.from_pretrained(&quot;./bert-base-uncased-local&quot;)</span><br></pre></td></tr></table></figure>
 <p>当然，你也可以把这个目录的内容拷贝到其他地方使用。我们自己在本地保存后，如果不想重复占用磁盘空间，也可以把缓存目录的对应内容都删除了。</p>
-</li>
-</ul>
 
     </div>
 
@@ -336,7 +351,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

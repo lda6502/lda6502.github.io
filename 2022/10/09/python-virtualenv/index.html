@@ -115,7 +115,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#python3%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%9A%84%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">python3虚拟环境的创建和使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jupyter-lab%E4%BD%BF%E7%94%A8%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83"><span class="nav-number">2.</span> <span class="nav-text">jupyter lab使用虚拟环境</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#python3%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%9A%84%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text"> python3虚拟环境的创建和使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jupyter-lab%E4%BD%BF%E7%94%A8%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83"><span class="nav-number">2.</span> <span class="nav-text"> jupyter lab使用虚拟环境</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -128,7 +128,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -237,14 +237,17 @@
         <p>python语言功能强大，现在应用也非常广泛，但作为一种容易上手的简单的编程语言，其功能强大并不是因为语言自己的能力，而是因为它使用简单，各个领域的专业人员都可以熟练使用，这些可能不一定是计算机专业的开发人员也可以按照自己的要求，开发各种类型有用的python软件包，这些覆盖各个领域的软件包，反过来又推动了python的应用和推广，从某个角度来说，强大的不是python，而是python的软件包。</p>
 <span id="more"></span>
 <p>但是在现实应用环境中，python有各种不同的版本，每个软件包可能又对运行的python版本有要求，我们经常需要在不同的python版本和不同的软件包版本之间切换，如果通过卸载重装python和软件包的方法，就太麻烦了，所以通常我们都会建立一个虚拟环境，在这个虚拟环境内，我们可以随意折腾，安装需要的软件包，对其他的软件不会有任何影响，如果虚拟环境不需要了，直接删除就可以了，处理起来非常方便。</p>
-<h3 id="python3虚拟环境的创建和使用"><a href="#python3虚拟环境的创建和使用" class="headerlink" title="python3虚拟环境的创建和使用"></a>python3虚拟环境的创建和使用</h3><p>python3可以直接用venv创建虚拟环境，以下语句就可以在当前目录下创建名字为<code>env3.7</code>的虚拟环境，这个虚拟环境实际就是1个目录，在这个虚拟环境下安装的软件包都在这个目录中</p>
+<h3 id="python3虚拟环境的创建和使用"><a class="markdownIt-Anchor" href="#python3虚拟环境的创建和使用"></a> python3虚拟环境的创建和使用</h3>
+<p>python3可以直接用venv创建虚拟环境，以下语句就可以在当前目录下创建名字为<code>env3.7</code>的虚拟环境，这个虚拟环境实际就是1个目录，在这个虚拟环境下安装的软件包都在这个目录中</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyhton -m venv env3.7</span><br></pre></td></tr></table></figure>
 <p>要激活使用这个虚拟环境，只需要使用以下语句</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source env3.7/bin/activate</span><br></pre></td></tr></table></figure>
-<p>这个时候我们可以看到命令行提示符号前面多了个<code>(env3.7)</code>的标记，提示我们现在处于这个虚拟环境下，在这个环境下就可以直接用pip安装软件包了。如果要退出虚拟环境，只需要输入<code>deactivate</code>命令就可以了。<br>需要注意的是，我们在某个虚拟环境下，对应的python版本与创建虚拟环境时运行的python版本相同，例如：如果我们本机实际安装了3.6、3.7、3.8三个python版本，以下三个命令</p>
+<p>这个时候我们可以看到命令行提示符号前面多了个<code>(env3.7)</code>的标记，提示我们现在处于这个虚拟环境下，在这个环境下就可以直接用pip安装软件包了。如果要退出虚拟环境，只需要输入<code>deactivate</code>命令就可以了。<br />
+需要注意的是，我们在某个虚拟环境下，对应的python版本与创建虚拟环境时运行的python版本相同，例如：如果我们本机实际安装了3.6、3.7、3.8三个python版本，以下三个命令</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python3.6 -m venv envDemo3.6</span><br><span class="line">python3.7 -m venv envDemo3.7</span><br><span class="line">python3.8 -m venv envDemo3.8</span><br></pre></td></tr></table></figure>
 <p>分别创建了3个虚拟环境，在激活这些虚拟环境后，默认的python版本就是创建时使用的python版本，以上3个命令创建的虚拟环境默认的python版本分别是python3.6、python3.7和python3.8，进入这些虚拟环境后，通过pip安装软件包时，也自动安装这个python版本对应的软件包，这些软件包实际也全部安装在这个虚拟环境所在的目录中，这样我们删除这个目录，也就删除了对应的全部软件包。</p>
-<h3 id="jupyter-lab使用虚拟环境"><a href="#jupyter-lab使用虚拟环境" class="headerlink" title="jupyter lab使用虚拟环境"></a>jupyter lab使用虚拟环境</h3><p>如果我们需要<code>jupyter lab</code>也可以使用虚拟环境，可以通过ipykernel软件包实现，通过pip安装这个软件包</p>
+<h3 id="jupyter-lab使用虚拟环境"><a class="markdownIt-Anchor" href="#jupyter-lab使用虚拟环境"></a> jupyter lab使用虚拟环境</h3>
+<p>如果我们需要<code>jupyter lab</code>也可以使用虚拟环境，可以通过ipykernel软件包实现，通过pip安装这个软件包</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install ipykernel</span><br></pre></td></tr></table></figure>
 <p>例如，如果要使用刚才创建的envDemo3.8,就可以用</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m ipykernel install --user --name=envDemo3.8</span><br></pre></td></tr></table></figure>
@@ -287,6 +290,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2023/03/11/math-3d/" rel="next" title="math-3d">
+                  math-3d <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -307,7 +313,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
