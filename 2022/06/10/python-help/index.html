@@ -115,7 +115,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#python%E7%9A%84help%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text"> python的help函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%9A%84%E6%BA%90%E4%BB%A3%E7%A0%81%E6%9F%A5%E8%AF%A2%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text"> 软件包的源代码查询方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8Edill%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="nav-number">3.</span> <span class="nav-text"> 关于dill软件包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%8D%E8%AF%B4%E4%B8%80%E6%AC%A1help"><span class="nav-number">4.</span> <span class="nav-text"> 再说一次help</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95%E7%9A%84%E6%9F%A5%E8%AF%A2%E6%96%B9%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text"> 对象属性和方法的查询方法</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%9A%84%E6%BA%90%E4%BB%A3%E7%A0%81%E6%9F%A5%E8%AF%A2%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">软件包的源代码查询方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8Edill%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="nav-number">2.</span> <span class="nav-text">关于dill软件包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%8D%E8%AF%B4%E4%B8%80%E6%AC%A1help"><span class="nav-number">3.</span> <span class="nav-text">再说一次help</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95%E7%9A%84%E6%9F%A5%E8%AF%A2%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">对象属性和方法的查询方法</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -128,7 +128,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -243,28 +243,18 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>python语言能够流行，有个很重要的原因就是有大量的第三方的软件包，如果不是使用频率很高的话，使用的时候可能会忘记具体用法，如果我们知道以下两个方法就可以解决这个问题了。</p>
-<span id="more"></span>
-<h3 id="python的help函数"><a class="markdownIt-Anchor" href="#python的help函数"></a> python的help函数</h3>
-<p>help函数可以查询软件包的说明、类的定义和函数的调用参数，例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">help(pd)</span><br><span class="line">help(pd.DataFrame)</span><br><span class="line">help(pd.DataFrame.to_excel)</span><br></pre></td></tr></table></figure>
-<p>上面分别三次应用help函数查询pandas软件包的说明、pandas软件包中DataFrame类的说明、DataFrame类的to_excel函数的调用说明。这样就很方便的在本机查询相关信息了。</p>
-<h3 id="软件包的源代码查询方法"><a class="markdownIt-Anchor" href="#软件包的源代码查询方法"></a> 软件包的源代码查询方法</h3>
-<p>python是解释型语言，任何程序都是以源代码形式运行的，如果我们需要查看软件包的源代码，可以使用内置的inspect软件包，例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import inspect</span><br><span class="line">print(inspect.getsource(pd))</span><br><span class="line">print(inspect.getsource(pd.DataFrame))</span><br><span class="line">print(inspect.getsource(pd.DataFrame.to_excel))</span><br></pre></td></tr></table></figure>
-<p>上面分别三次应用inspect的getsource函数查询pandas软件包、pandas的DataFrame类、DataFrame类的to_excel函数的源代码，这样可以了解程序运行的内部细节，特别是运行错误的时候可以更方便的观察错误的产生原因。</p>
-<h3 id="关于dill软件包"><a class="markdownIt-Anchor" href="#关于dill软件包"></a> 关于dill软件包</h3>
-<p>有些自定义的函数用内置的inspect库获取源代码可能会报错，这个时候就只有用dill包了，不过它默认是没有安装的，如果你发现没有安装就需要自己安装一下。下面的语句就是用dill查看源代码的例子</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">import dill</span><br><span class="line">print(dill.source.getsource(pd.DataFrame))</span><br></pre></td></tr></table></figure>
-<h3 id="再说一次help"><a class="markdownIt-Anchor" href="#再说一次help"></a> 再说一次help</h3>
-<p>如果你需要看看上面的软件包还有啥用法，不要忘了我们最前面说的help，直接</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">help(inspect)</span><br><span class="line">help(dill.source)</span><br></pre></td></tr></table></figure>
-<p>这些都是可以的。</p>
-<h3 id="对象属性和方法的查询方法"><a class="markdownIt-Anchor" href="#对象属性和方法的查询方法"></a> 对象属性和方法的查询方法</h3>
+        <p>python语言能够流行，有个很重要的原因就是有大量的第三方的软件包，如果不是使用频率很高的话，使用的时候可能会忘记具体用法，如果我们知道以下两个方法就可以解决这个问题了。 <span id="more"></span> ### python的help函数 help函数可以查询软件包的说明、类的定义和函数的调用参数，例如： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">help(pd)</span><br><span class="line">help(pd.DataFrame)</span><br><span class="line">help(pd.DataFrame.to_excel)</span><br></pre></td></tr></table></figure> 上面分别三次应用help函数查询pandas软件包的说明、pandas软件包中DataFrame类的说明、DataFrame类的to_excel函数的调用说明。这样就很方便的在本机查询相关信息了。</p>
+<h3 id="软件包的源代码查询方法">软件包的源代码查询方法</h3>
+<p>python是解释型语言，任何程序都是以源代码形式运行的，如果我们需要查看软件包的源代码，可以使用内置的inspect软件包，例如： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import inspect</span><br><span class="line">print(inspect.getsource(pd))</span><br><span class="line">print(inspect.getsource(pd.DataFrame))</span><br><span class="line">print(inspect.getsource(pd.DataFrame.to_excel))</span><br></pre></td></tr></table></figure> 上面分别三次应用inspect的getsource函数查询pandas软件包、pandas的DataFrame类、DataFrame类的to_excel函数的源代码，这样可以了解程序运行的内部细节，特别是运行错误的时候可以更方便的观察错误的产生原因。</p>
+<h3 id="关于dill软件包">关于dill软件包</h3>
+<p>有些自定义的函数用内置的inspect库获取源代码可能会报错，这个时候就只有用dill包了，不过它默认是没有安装的，如果你发现没有安装就需要自己安装一下。下面的语句就是用dill查看源代码的例子 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">import dill</span><br><span class="line">print(dill.source.getsource(pd.DataFrame))</span><br></pre></td></tr></table></figure></p>
+<h3 id="再说一次help">再说一次help</h3>
+<p>如果你需要看看上面的软件包还有啥用法，不要忘了我们最前面说的help，直接 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">help(inspect)</span><br><span class="line">help(dill.source)</span><br></pre></td></tr></table></figure> 这些都是可以的。</p>
+<h3 id="对象属性和方法的查询方法">对象属性和方法的查询方法</h3>
 <ul>
 <li>如果要查询对象的属性和方法，可以用dir函数，例如:<code>dir(obj)</code>就可以查询obj对象全部的属性和方法。</li>
-<li>查询对象是否有某个属性或方法，可以用hasattr函数，例如:<code>hasattr(obj,&quot;__init__&quot;)</code>可以查询obj对象是否有<code>__init__</code>属性（方法）。</li>
-<li>查询对象的属性值或方法，可以用getattr函数，例如：<code>getattr(obj,&quot;id&quot;)</code>可以查询obj对象的id值，和<code>obj.id</code>的效果是一样的。</li>
+<li>查询对象是否有某个属性或方法，可以用hasattr函数，例如:<code>hasattr(obj,"__init__")</code>可以查询obj对象是否有<code>__init__</code>属性（方法）。</li>
+<li>查询对象的属性值或方法，可以用getattr函数，例如：<code>getattr(obj,"id")</code>可以查询obj对象的id值，和<code>obj.id</code>的效果是一样的。</li>
 </ul>
 
     </div>
@@ -368,6 +358,12 @@
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.sourcegcdn.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 

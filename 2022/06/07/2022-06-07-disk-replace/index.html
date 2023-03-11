@@ -115,7 +115,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%B6%E4%BD%9Clinux%E7%9A%84%E5%90%AF%E5%8A%A8u%E7%9B%98"><span class="nav-number">1.</span> <span class="nav-text"> 制作linux的启动U盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u%E7%9B%98%E5%90%AF%E5%8A%A8%E7%B3%BB%E7%BB%9F%E5%90%8E%E5%A4%8D%E5%88%B6%E7%A1%AC%E7%9B%98"><span class="nav-number">2.</span> <span class="nav-text"> U盘启动系统后复制硬盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%81%A2%E5%A4%8D%E6%95%B0%E6%8D%AE%E5%88%B0%E6%96%B0%E7%A1%AC%E7%9B%98"><span class="nav-number">3.</span> <span class="nav-text"> 恢复数据到新硬盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E6%83%85%E5%86%B5"><span class="nav-number">4.</span> <span class="nav-text"> 需要注意的情况</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#u%E7%9B%98%E5%90%AF%E5%8A%A8%E7%B3%BB%E7%BB%9F%E5%90%8E%E5%A4%8D%E5%88%B6%E7%A1%AC%E7%9B%98"><span class="nav-number">1.</span> <span class="nav-text">U盘启动系统后复制硬盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%81%A2%E5%A4%8D%E6%95%B0%E6%8D%AE%E5%88%B0%E6%96%B0%E7%A1%AC%E7%9B%98"><span class="nav-number">2.</span> <span class="nav-text">恢复数据到新硬盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E6%83%85%E5%86%B5"><span class="nav-number">3.</span> <span class="nav-text">需要注意的情况</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -128,7 +128,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -243,56 +243,33 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>电脑原配的512G硬盘快满了，准备升级到新的1T硬盘，升级方式是把原来的硬盘直接替换下来，新的硬盘直接插到老硬盘的位置。原硬盘分区比较复杂，有win10的硬盘分区、HP的恢复分区、linux的多个分区（系统分区、交换分区等），启动的时候可以选择启动linux或win10，平时主要用linux，偶尔特殊原因用下win10。如果用重装系统的方式就太麻烦了，需要重装win10和linux两个系统，还有很多驱动和软件都得重新安装或者设置，就想看看能不能不用重装系统来升级硬盘。</p>
-<span id="more"></span>
-<p>想法是复制整个硬盘，包括分区表和分区内的数据，复制方式是最底层的直接数据复制，不管是分区表还是里面的数据，直接原样复制，这样的话，因为是插在原来的位置上，linux下的设备名和win10下的盘符都不会变，所以理论上如果复制没有问题，插上新硬盘后直接就可以正常使用。<br />
-正好linux下的dd命令就有复制整个硬盘的功能，实际的升级步骤如下</p>
-<h3 id="制作linux的启动u盘"><a class="markdownIt-Anchor" href="#制作linux的启动u盘"></a> 制作linux的启动U盘</h3>
-<p>我们要复制整个硬盘，所以就不能用原来硬盘的系统来启动了，需要制作linux的启动U盘，用这个U盘启动系统，在这个系统环境下复制硬盘。我平时用的linux系统是debian，所以下面都以debian为例说明。</p>
-<ul>
-<li>下载linux启动映像<br />
-先直接下载debian的live映像，这是个iso文件，包含一个基础的debian系统，先到官网下载下来，比如我下载的这个文件名是：</li>
-</ul>
+        <p>电脑原配的512G硬盘快满了，准备升级到新的1T硬盘，升级方式是把原来的硬盘直接替换下来，新的硬盘直接插到老硬盘的位置。原硬盘分区比较复杂，有win10的硬盘分区、HP的恢复分区、linux的多个分区（系统分区、交换分区等），启动的时候可以选择启动linux或win10，平时主要用linux，偶尔特殊原因用下win10。如果用重装系统的方式就太麻烦了，需要重装win10和linux两个系统，还有很多驱动和软件都得重新安装或者设置，就想看看能不能不用重装系统来升级硬盘。 <span id="more"></span> 想法是复制整个硬盘，包括分区表和分区内的数据，复制方式是最底层的直接数据复制，不管是分区表还是里面的数据，直接原样复制，这样的话，因为是插在原来的位置上，linux下的设备名和win10下的盘符都不会变，所以理论上如果复制没有问题，插上新硬盘后直接就可以正常使用。 正好linux下的dd命令就有复制整个硬盘的功能，实际的升级步骤如下 ### 制作linux的启动U盘 我们要复制整个硬盘，所以就不能用原来硬盘的系统来启动了，需要制作linux的启动U盘，用这个U盘启动系统，在这个系统环境下复制硬盘。我平时用的linux系统是debian，所以下面都以debian为例说明。 - 下载linux启动映像 先直接下载debian的live映像，这是个iso文件，包含一个基础的debian系统，先到官网下载下来，比如我下载的这个文件名是：</p>
 <p><strong>debian-live-11.3.0-amd64-standard.iso</strong>。</p>
 <ul>
-<li>制作系统U盘<br />
-找个不用的U盘，插到USB接口后，用</li>
+<li>制作系统U盘 找个不用的U盘，插到USB接口后，用</li>
 </ul>
 <p><strong>sudo fdisk -l</strong></p>
-<p>查看全部的硬盘信息和设备名，比如我的硬盘设备名是**/dev/nvme0n1**,U盘的设备名是**/dev/sdb**，用dd命令将下载的live映像整盘写入到U盘上，具体的命令是：</p>
+<p>查看全部的硬盘信息和设备名，比如我的硬盘设备名是<strong>/dev/nvme0n1</strong>,U盘的设备名是<strong>/dev/sdb</strong>，用dd命令将下载的live映像整盘写入到U盘上，具体的命令是：</p>
 <p><strong>sudo dd if=debian-live-11.3.0-amd64-standard.iso of=/dev/sdb</strong></p>
-<p><strong>重要提示：dd命令的2个参数if和of分别表示输入和输出的文件名或设备名，上面的/dev/sdb是我电脑上的U盘设备名，实际使用的时候要换成你自己的U盘的设备名称，这个设备上的数据会被全部覆盖，搞错了就无法挽回了，后面所有涉及设备名的都有这个问题，不要简单粘贴使用哈，一定要改成你自己的设备名！！！</strong><br />
-这个命令执行完成后，debian的live映像的启动U盘就做好了。注意下，我使用这个命令的时候，live映像文件就在当前目录，如果你的映像文件不在当前目录，就自己把路径带上。</p>
-<h3 id="u盘启动系统后复制硬盘"><a class="markdownIt-Anchor" href="#u盘启动系统后复制硬盘"></a> U盘启动系统后复制硬盘</h3>
-<p>用刚才制作的U盘启动，注意启动选项中也包含安装debian系统的选项，不要安装，直接用默认选项启动U盘的系统就行，这个时候系统是在U盘上运行的，启动完成后进入终端模式，我们就可以随意复制硬盘的内容了，找个容量够大的移动硬盘，我正好有个512G的移动硬盘，插入电脑后，同样用<strong>sudo fdisk -l</strong>查看移动硬盘的设备名，假如设备名可能是**/dev/sdc**，对我来说这个移动硬盘和原来的硬盘是完全相同容量的，我就直接用的硬盘对硬盘的复制，对我来说具体的命令就是</p>
+<p><strong>重要提示：dd命令的2个参数if和of分别表示输入和输出的文件名或设备名，上面的/dev/sdb是我电脑上的U盘设备名，实际使用的时候要换成你自己的U盘的设备名称，这个设备上的数据会被全部覆盖，搞错了就无法挽回了，后面所有涉及设备名的都有这个问题，不要简单粘贴使用哈，一定要改成你自己的设备名！！！</strong> 这个命令执行完成后，debian的live映像的启动U盘就做好了。注意下，我使用这个命令的时候，live映像文件就在当前目录，如果你的映像文件不在当前目录，就自己把路径带上。</p>
+<h3 id="u盘启动系统后复制硬盘">U盘启动系统后复制硬盘</h3>
+<p>用刚才制作的U盘启动，注意启动选项中也包含安装debian系统的选项，不要安装，直接用默认选项启动U盘的系统就行，这个时候系统是在U盘上运行的，启动完成后进入终端模式，我们就可以随意复制硬盘的内容了，找个容量够大的移动硬盘，我正好有个512G的移动硬盘，插入电脑后，同样用<strong>sudo fdisk -l</strong>查看移动硬盘的设备名，假如设备名可能是<strong>/dev/sdc</strong>，对我来说这个移动硬盘和原来的硬盘是完全相同容量的，我就直接用的硬盘对硬盘的复制，对我来说具体的命令就是</p>
 <p><strong>sudo dd if=/dev/nvme0n1 of=/dev/sdc</strong></p>
 <p>上面就是直接做的整盘复制了，如果你的移动硬盘容量更大，而且有足够的空间，当然你也可以用<strong>mount</strong>命令挂载移动移动硬盘后，将需要复制的内容复制为移动硬盘的文件，例如你可以依次执行如下命令</p>
-<p><strong>sudo mount /dev/sdc /mnt</strong><br />
-<strong>sudo dd if=/dev/nvme0n1 of=/mnt/disk.img</strong></p>
-<p>这样就将整个硬盘的内容复制到移动硬盘根目录下的<strong>disk.img</strong>文件中了。<br />
-整个复制的过程时间比较长，我的移动硬盘是固态硬盘，实际也只有30MB/s的写入速度，实际花了约5个小时，如果要查看复制的进度，可以新开一个shell（例如ctrl-alt-F2），用<strong>watch -n 10 killall -USR1 dd</strong>，这样可以每10秒输出一次进度，切回复制的那个shell用<strong>ctrl-alt-F1</strong><br />
-如果复制完成后，就可以关机，拆下旧硬盘，在原位换上新硬盘了，然后可以开机进BIOS看看硬盘是否被正常识别，如果一切正常就可以进行下一步了。</p>
-<h3 id="恢复数据到新硬盘"><a class="markdownIt-Anchor" href="#恢复数据到新硬盘"></a> 恢复数据到新硬盘</h3>
-<p>仍然用U盘启动系统，启动完成后，插入移动硬盘，因为新硬盘和老硬盘都是插到同样的位置，所以他们的设备名都是相同的，对我来说还是**/dev/nvme0n1**，移动硬盘的设备名也不变,仍然是**/dev/sdc**，然后用以下命令将数据恢复到新硬盘中。</p>
+<p><strong>sudo mount /dev/sdc /mnt</strong> <strong>sudo dd if=/dev/nvme0n1 of=/mnt/disk.img</strong></p>
+<p>这样就将整个硬盘的内容复制到移动硬盘根目录下的<strong>disk.img</strong>文件中了。 整个复制的过程时间比较长，我的移动硬盘是固态硬盘，实际也只有30MB/s的写入速度，实际花了约5个小时，如果要查看复制的进度，可以新开一个shell（例如ctrl-alt-F2），用<strong>watch -n 10 killall -USR1 dd</strong>，这样可以每10秒输出一次进度，切回复制的那个shell用<strong>ctrl-alt-F1</strong> 如果复制完成后，就可以关机，拆下旧硬盘，在原位换上新硬盘了，然后可以开机进BIOS看看硬盘是否被正常识别，如果一切正常就可以进行下一步了。</p>
+<h3 id="恢复数据到新硬盘">恢复数据到新硬盘</h3>
+<p>仍然用U盘启动系统，启动完成后，插入移动硬盘，因为新硬盘和老硬盘都是插到同样的位置，所以他们的设备名都是相同的，对我来说还是<strong>/dev/nvme0n1</strong>，移动硬盘的设备名也不变,仍然是<strong>/dev/sdc</strong>，然后用以下命令将数据恢复到新硬盘中。</p>
 <p><strong>sudo dd if=/dev/sdc of=/dev/nvme0n1</strong></p>
 <p>如果你是像上面第二种方式那样将原硬盘内容复制为文件的话，恢复操作和写入类似，用下面的命令</p>
-<p><strong>sudo mount /dev/sdc /mnt</strong><br />
-<strong>sudo dd if=/mnt/disk.img of=/dev/nvme0n1</strong></p>
+<p><strong>sudo mount /dev/sdc /mnt</strong> <strong>sudo dd if=/mnt/disk.img of=/dev/nvme0n1</strong></p>
 <p>这样，当dd复制完后，就大功告成了，同样可以用之前的方法查看恢复的进度，我实际的恢复速度大约在120MB/s，比复制的时候快得多，大概1个多小时就完成了，可能是新硬盘的写入速度比移动硬盘快的因素吧，不过还是比我预期的要慢得多，按照厂家宣称的3000MB/s以上的数据，道理上不该这么慢，也许是移动硬盘的读入速度也不高吧。</p>
-<h3 id="需要注意的情况"><a class="markdownIt-Anchor" href="#需要注意的情况"></a> 需要注意的情况</h3>
+<h3 id="需要注意的情况">需要注意的情况</h3>
 <ul>
-<li>
-<p>以上过程完成后，用新硬盘启动，熟悉的多系统启动界面出现了，分别进win10和debian系统测试，完全正常，就是win10u很久没用了，进入就强制让我更新，花了不少时间，想关闭更新发现最多只能暂停更新45天，微软这个流氓手段有够恶心的，幸好我很少用这破系统。</p>
-</li>
-<li>
-<p>进入debian后，查看硬盘信息，发现前面的分区和原硬盘完全一致，后面多了512G的未用空间，直接新加个分区挂载使用，或者直接把最后一个分区扩大都可以，进入分区的时候会提醒分区表大小和硬盘容量不一致，这个会自动修复，有任何磁盘分区的操作后，就会修改这个差异，下次就不会报这个信息了</p>
-</li>
-<li>
-<p>以上的所有设备名都是我电脑上的情况，请不要直接照搬使用，要以你自己的设备名为准</p>
-</li>
-<li>
-<p>以上更换过程全程对原硬盘没有写操作，总体是很安全的，就算有问题换回原硬盘也是可以的，就是需要使用一个U盘和大容量的移动硬盘，当然明白思路后，实际上还有很多优化的方法，这里就不细说了。但是这个过程一定要注意<strong>dd</strong>命令的时候，<strong>if=</strong> 后面是读入的设备名或文件名，<strong>of=</strong> 后面是写入的设备名或文件名，不要搞反了哈，搞反就会杯具了。</p>
-</li>
+<li><p>以上过程完成后，用新硬盘启动，熟悉的多系统启动界面出现了，分别进win10和debian系统测试，完全正常，就是win10u很久没用了，进入就强制让我更新，花了不少时间，想关闭更新发现最多只能暂停更新45天，微软这个流氓手段有够恶心的，幸好我很少用这破系统。</p></li>
+<li><p>进入debian后，查看硬盘信息，发现前面的分区和原硬盘完全一致，后面多了512G的未用空间，直接新加个分区挂载使用，或者直接把最后一个分区扩大都可以，进入分区的时候会提醒分区表大小和硬盘容量不一致，这个会自动修复，有任何磁盘分区的操作后，就会修改这个差异，下次就不会报这个信息了</p></li>
+<li><p>以上的所有设备名都是我电脑上的情况，请不要直接照搬使用，要以你自己的设备名为准</p></li>
+<li><p>以上更换过程全程对原硬盘没有写操作，总体是很安全的，就算有问题换回原硬盘也是可以的，就是需要使用一个U盘和大容量的移动硬盘，当然明白思路后，实际上还有很多优化的方法，这里就不细说了。但是这个过程一定要注意<strong>dd</strong>命令的时候，<strong>if=</strong> 后面是读入的设备名或文件名，<strong>of=</strong> 后面是写入的设备名或文件名，不要搞反了哈，搞反就会杯具了。</p></li>
 </ul>
 
     </div>
@@ -396,6 +373,12 @@
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.sourcegcdn.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 

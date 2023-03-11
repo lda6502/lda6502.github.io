@@ -127,7 +127,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -242,19 +242,17 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>简单来说，我们可以把hexo看成一个md文件的转换和发布工具，就是说我们只需要用markdown写一系列的文档，hexo可以自动帮我们转换为一个静态的网站的内容，hexo同时还提供发布功能，就是在我们本机启动web服务器，让我们可以通过浏览器直接参看我们的博客效果，当然也支持一键发布到github上，这样其他人也可以看到我们的博客内容了。</p>
-<span id="more"></span>
-<p>所以简单的来说，hexo的基本功能是转换md格式的文档，这样就省去了我们写html网页的麻烦，另外在本机实现了一个web服务器的功能，这样即使不上网，我们也可以在本机浏览器查看我们的博客内容了。</p>
+        <p>简单来说，我们可以把hexo看成一个md文件的转换和发布工具，就是说我们只需要用markdown写一系列的文档，hexo可以自动帮我们转换为一个静态的网站的内容，hexo同时还提供发布功能，就是在我们本机启动web服务器，让我们可以通过浏览器直接参看我们的博客效果，当然也支持一键发布到github上，这样其他人也可以看到我们的博客内容了。 <span id="more"></span> 所以简单的来说，hexo的基本功能是转换md格式的文档，这样就省去了我们写html网页的麻烦，另外在本机实现了一个web服务器的功能，这样即使不上网，我们也可以在本机浏览器查看我们的博客内容了。</p>
 <p>hexo并不提供md文件编写相关的内容，md文件的编写我们可以找自己熟悉的文本编辑器或者其他的专用编辑器。</p>
-<p>hexo是基于nodejs开发的，所以在安装和使用hexo之前，你需要安装nodejs，你可以到官方网站下载和安装 <a target="_blank" rel="noopener" href="https://nodejs.org">https://nodejs.org</a> ,nodejs安装后，我们需要知道 npm 命令。</p>
+<p>hexo是基于nodejs开发的，所以在安装和使用hexo之前，你需要安装nodejs，你可以到官方网站下载和安装 https://nodejs.org ,nodejs安装后，我们需要知道 npm 命令。</p>
 <p>npm ,命令是nodejs的软件包管理工具，就是说基于nodejs的软件包的安装、升级和删除等处理都要用npm来完成，那啥是软件包呢？实现某种功能的完整的程序，我们把它封装在一起，就是一个软件包，例如hexo就是一个软件包。</p>
 <p>使用npm命令，就可以解决我们安装和使用hexo的需求了。下面是hexo安装和初始化的步骤：</p>
-<ol>
+<ol type="1">
 <li>安装hexo软件包，npm install hexo-cli -g ,注意这个命令在linux和mac下执行的时候可能需要root权限，就是说这个命令要么用sudo执行，要么用root用户执行。hexo安装完成后，我们就可以用直接用hexo这个命令完成我们需要的功能了。</li>
 <li>创建和初始化博客目录 ，假如我们希望创建的博客目录是当前目录下，博客的目录名为blog，那创建和初始化的命令就是 hexo init blog，当然如果完全可以使用其他的目录名。</li>
 <li>进入目录，如果我们的目录名为blog，就可以用cd blog进入已经初始化的目录中</li>
 <li>安装hexo需要用到的其他软件，npm install</li>
-<li>启动web服务，hexo server ,web服务会在默认的4000端口启动，在浏览器输入 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a> 就可以看到我们的博客页面了。</li>
+<li>启动web服务，hexo server ,web服务会在默认的4000端口启动，在浏览器输入 http://localhost:4000/ 就可以看到我们的博客页面了。</li>
 </ol>
 
     </div>
@@ -358,6 +356,12 @@
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.sourcegcdn.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 

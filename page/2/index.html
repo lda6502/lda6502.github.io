@@ -123,7 +123,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -163,6 +163,98 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://lda6502.github.io/2022/05/21/2022-05-21-path/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GaoYong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="起点">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 起点">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/21/2022-05-21-path/" class="post-title-link" itemprop="url">linux基础（二）环境变量PATH</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-05-21 15:48:49" itemprop="dateCreated datePublished" datetime="2022-05-21T15:48:49+08:00">2022-05-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-22 15:18:32" itemprop="dateModified" datetime="2022-05-22T15:18:32+08:00">2022-05-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/linux%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">linux基础</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在linux下，要运行一个具有执行权限的可执行文件（有点绕，但这是准确的表达方式），在命令行环境下，直接输入这个文件的完整路径名就可以了，但是有人会说了，不对哦，这个和我们平时看到的情况不一样啊，我们通常运行一个程序，直接输入这个程序的名字就可以了，那这是怎么回事了，那我们就需要说说 PATH 这个环境变量了，<strong>注意这个变量4个字母都是大写</strong>，至于什么是环境变量，我们暂时放一边，后面再说。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/05/21/2022-05-21-path/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -230,7 +322,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>我们之前介绍了 PATH 这个环境变量，知道它可以控制有哪些目录中的文件可以直接输入文件名运行，那环境变量到底是啥？还有哪些其他的环境变量？如何让环境变量的设置长期生效，不会因为退出终端窗口而失效？下面我们就主要来讲讲这个问题。</p>
+          <p>我们之前介绍了 PATH 这个环境变量，知道它可以控制有哪些目录中的文件可以直接输入文件名运行，那环境变量到底是啥？还有哪些其他的环境变量？如何让环境变量的设置长期生效，不会因为退出终端窗口而失效？下面我们就主要来讲讲这个问题。
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/05/19/2022-05-19-env/#more" rel="contents">
@@ -322,7 +414,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>我们在linux的终端窗口下,输入命令或者运行程序的时候,会发现有些程序直接输入程序名就可以运行,有些程序必须要输入完整的路径才行,这到底是怎么回事呢?要把这个事情说清楚，还是需要先了解一点背景知识。</p>
+          <p>我们在linux的终端窗口下,输入命令或者运行程序的时候,会发现有些程序直接输入程序名就可以运行,有些程序必须要输入完整的路径才行,这到底是怎么回事呢?要把这个事情说清楚，还是需要先了解一点背景知识。
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/05/19/2022-05-21-run/#more" rel="contents">
@@ -414,7 +506,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>在linux环境下，如果我们需要一个方便的文本编辑器，vim是个很好的选择，主要的好处是非常轻量化，而且系统都预装了，直接就可以用，适合写点配置文件之类的，直接用来写代码也是没有问题的。vim不好的地方就是如果不是经常用的话，很多编辑命令实际上很容易忘记，下面把常用的命令整理备忘。</p>
+          <p>在linux环境下，如果我们需要一个方便的文本编辑器，vim是个很好的选择，主要的好处是非常轻量化，而且系统都预装了，直接就可以用，适合写点配置文件之类的，直接用来写代码也是没有问题的。vim不好的地方就是如果不是经常用的话，很多编辑命令实际上很容易忘记，下面把常用的命令整理备忘。
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/05/15/2022-05-21-vim/#more" rel="contents">
@@ -506,7 +598,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>我们在本机搭建好个人博客网站后，如果希望别人也能看到，就需要发布到网上，这里我们使用github来发布我们的博客内容，需要做以下几个方面的工作</p>
+          <p>我们在本机搭建好个人博客网站后，如果希望别人也能看到，就需要发布到网上，这里我们使用github来发布我们的博客内容，需要做以下几个方面的工作
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/05/15/2022-05-15-git/#more" rel="contents">
@@ -599,9 +691,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <ul>
-<li>我们使用hexo完成博客网站的搭建后，就可以编写新的博客了，下面我们的所有说明都假设我们的博客目录是blog，我们执行所有的命令都是在这个目录内。<br />
-其实在我们完成博客网站的搭建后，通过浏览器已经可以看到我们的默认的博客网站和一篇hello world的博客，在正式使用前，我们可以做一点必要的设置，包括我们博客网站的名字和描述之类的，在我们的blog目录中，有个 _config.yml 文件，用文本编辑器修改这个文件的内容，可以对我们的网站进行配置，至少需要对 title和language 这两项设置进行修改，其他的内容如果不了解可以先保持不动，title是设置我们网站的名称，language是设置网站的语言，例如我们的内容是中文，就设置为 zh-CN 。</li>
-</ul>
+<li>我们使用hexo完成博客网站的搭建后，就可以编写新的博客了，下面我们的所有说明都假设我们的博客目录是blog，我们执行所有的命令都是在这个目录内。 其实在我们完成博客网站的搭建后，通过浏览器已经可以看到我们的默认的博客网站和一篇hello world的博客，在正式使用前，我们可以做一点必要的设置，包括我们博客网站的名字和描述之类的，在我们的blog目录中，有个 _config.yml 文件，用文本编辑器修改这个文件的内容，可以对我们的网站进行配置，至少需要对 title和language 这两项设置进行修改，其他的内容如果不了解可以先保持不动，title是设置我们网站的名称，language是设置网站的语言，例如我们的内容是中文，就设置为 zh-CN 。
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/05/14/2022-05-14-edit/#more" rel="contents">
@@ -693,7 +783,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>简单来说，我们可以把hexo看成一个md文件的转换和发布工具，就是说我们只需要用markdown写一系列的文档，hexo可以自动帮我们转换为一个静态的网站的内容，hexo同时还提供发布功能，就是在我们本机启动web服务器，让我们可以通过浏览器直接参看我们的博客效果，当然也支持一键发布到github上，这样其他人也可以看到我们的博客内容了。</p>
+          <p>简单来说，我们可以把hexo看成一个md文件的转换和发布工具，就是说我们只需要用markdown写一系列的文档，hexo可以自动帮我们转换为一个静态的网站的内容，hexo同时还提供发布功能，就是在我们本机启动web服务器，让我们可以通过浏览器直接参看我们的博客效果，当然也支持一键发布到github上，这样其他人也可以看到我们的博客内容了。
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/05/14/2022-05-14-hexo/#more" rel="contents">
@@ -785,8 +875,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>个人博客可以记录自己学习、工作和生活中的想法、备忘和需要总结的内容，无论从哪个角度来说，都是很有意义，也很有价值的，当然可能会花点点时间，但是长远来看，这点代价（这个看你看问题的角度了，可以认为是代价，也可以认为是学习和个人价值提升的过程）是值得的。<br />
-如果有写博客的想法，那剩下的问题就是用啥工具来写？写了之后放在哪里？</p>
+          <p>个人博客可以记录自己学习、工作和生活中的想法、备忘和需要总结的内容，无论从哪个角度来说，都是很有意义，也很有价值的，当然可能会花点点时间，但是长远来看，这点代价（这个看你看问题的角度了，可以认为是代价，也可以认为是学习和个人价值提升的过程）是值得的。 如果有写博客的想法，那剩下的问题就是用啥工具来写？写了之后放在哪里？
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/05/14/2022-05-14-start/#more" rel="contents">
@@ -869,6 +958,12 @@
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.sourcegcdn.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 

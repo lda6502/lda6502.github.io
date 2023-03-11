@@ -127,7 +127,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -243,31 +243,15 @@
     
     <div class="post-body" itemprop="articleBody">
         <ul>
-<li>我们使用hexo完成博客网站的搭建后，就可以编写新的博客了，下面我们的所有说明都假设我们的博客目录是blog，我们执行所有的命令都是在这个目录内。<br />
-其实在我们完成博客网站的搭建后，通过浏览器已经可以看到我们的默认的博客网站和一篇hello world的博客，在正式使用前，我们可以做一点必要的设置，包括我们博客网站的名字和描述之类的，在我们的blog目录中，有个 _config.yml 文件，用文本编辑器修改这个文件的内容，可以对我们的网站进行配置，至少需要对 title和language 这两项设置进行修改，其他的内容如果不了解可以先保持不动，title是设置我们网站的名称，language是设置网站的语言，例如我们的内容是中文，就设置为 zh-CN 。</li>
+<li>我们使用hexo完成博客网站的搭建后，就可以编写新的博客了，下面我们的所有说明都假设我们的博客目录是blog，我们执行所有的命令都是在这个目录内。 其实在我们完成博客网站的搭建后，通过浏览器已经可以看到我们的默认的博客网站和一篇hello world的博客，在正式使用前，我们可以做一点必要的设置，包括我们博客网站的名字和描述之类的，在我们的blog目录中，有个 _config.yml 文件，用文本编辑器修改这个文件的内容，可以对我们的网站进行配置，至少需要对 title和language 这两项设置进行修改，其他的内容如果不了解可以先保持不动，title是设置我们网站的名称，language是设置网站的语言，例如我们的内容是中文，就设置为 zh-CN 。 <span id="more"></span></li>
+<li>网站的基本设置完成后，我们就可以新建博客，用命令 hexo init hello ，就可以新建文件名为hello.md的博客，进入blog/source/_posts 目录中，我们发现除了初始化的时候自动生成的的 hello world的的博客外，新生成了一个 hello.md 的文件，用文本编辑器打开这个文件，可以发现类似如下的内容：</li>
 </ul>
-<span id="more"></span>
+<p>--- title: hello date: 2022-05-14 12:09:19 tags: ---</p>
 <ul>
-<li>网站的基本设置完成后，我们就可以新建博客，用命令 hexo init hello ，就可以新建文件名为hello.md的博客，进入blog/source/_posts 目录中，我们发现除了初始化的时候自动生成的的 hello world的的博客外，新生成了一个 <a target="_blank" rel="noopener" href="http://hello.md">hello.md</a> 的文件，用文本编辑器打开这个文件，可以发现类似如下的内容：</li>
-</ul>
-<p>---<br />
-title: hello<br />
-date: 2022-05-14 12:09:19<br />
-tags:<br />
----</p>
-<ul>
-<li>
-<p>修改title的内容，就可以编辑博客的标题，其他的部分如果不了解，可以暂时先不动，直接在文本最后开始书写我们自己的博客内容了，博客内容是md格式，如果你没有特殊的格式要求，就直接写成纯文件文件就可以了。如果有兴趣了解md文本的格式设置方法，也可以简单学习点常用的设置方法，具体可以看这个网站 <a target="_blank" rel="noopener" href="http://markdown.com.cn">http://markdown.com.cn</a> ，博客写好后，保存后，在网页上刷新一下，就可以看到我们刚才写的博客内容了 ，按照这个方法，我们就可以继续写新的博客了。</p>
-</li>
-<li>
-<p>删除博客 ，找到 blog/source/_posts 目录中，需要删除的那个博客文件，直接删除这个文件就可以了，刷新网页我们就可以看到这个博客已经删除了。</p>
-</li>
-<li>
-<p>修改博客 ，同上面找到对应的博客文件，继续编辑这个文件的内容，就可以进行内容的修改了。</p>
-</li>
-<li>
-<p>关于图片，如果有图片的话，需要在blog/source目录下建目录，例如：image，然后将图片都放在这个目录中，在博客内容中，可以用md格式引用图片，blog/source目录就是引用路径的根目录，例如：要显示blog/source/image/hexo_config.png 的图片,在hexo中，我们用md语法表示为 ![图片示例](/image/hexo_config.png)，当然我们要在 image目录下在建子目录也是完全没有问题的。</p>
-</li>
+<li><p>修改title的内容，就可以编辑博客的标题，其他的部分如果不了解，可以暂时先不动，直接在文本最后开始书写我们自己的博客内容了，博客内容是md格式，如果你没有特殊的格式要求，就直接写成纯文件文件就可以了。如果有兴趣了解md文本的格式设置方法，也可以简单学习点常用的设置方法，具体可以看这个网站 http://markdown.com.cn ，博客写好后，保存后，在网页上刷新一下，就可以看到我们刚才写的博客内容了 ，按照这个方法，我们就可以继续写新的博客了。</p></li>
+<li><p>删除博客 ，找到 blog/source/_posts 目录中，需要删除的那个博客文件，直接删除这个文件就可以了，刷新网页我们就可以看到这个博客已经删除了。</p></li>
+<li><p>修改博客 ，同上面找到对应的博客文件，继续编辑这个文件的内容，就可以进行内容的修改了。</p></li>
+<li><p>关于图片，如果有图片的话，需要在blog/source目录下建目录，例如：image，然后将图片都放在这个目录中，在博客内容中，可以用md格式引用图片，blog/source目录就是引用路径的根目录，例如：要显示blog/source/image/hexo_config.png 的图片,在hexo中，我们用md语法表示为 ![图片示例](/image/hexo_config.png)，当然我们要在 image目录下在建子目录也是完全没有问题的。</p></li>
 </ul>
 <p>好了，现在开始我们就可以愉快的写我们自己的博客，并且在我们本机的浏览器上查看了。</p>
 
@@ -372,6 +356,12 @@ tags:<br />
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.sourcegcdn.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 

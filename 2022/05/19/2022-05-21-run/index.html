@@ -129,7 +129,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -244,32 +244,20 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>我们在linux的终端窗口下,输入命令或者运行程序的时候,会发现有些程序直接输入程序名就可以运行,有些程序必须要输入完整的路径才行,这到底是怎么回事呢?要把这个事情说清楚，还是需要先了解一点背景知识。</p>
-<span id="more"></span>
-<p>以下是我们实际操作的屏幕截屏，我们看看它做了什么，红框标注的4个步骤：<br />
-<img src="/img/linux_run.png" alt="" /></p>
-<ol>
-<li>
-<p>首先用 pwd 命令查看当前目录，显示为 /home/blog</p>
-</li>
-<li>
-<p>用 ls -l 命令查看当前目录的文件及相关信息，可以看到只有1个hello.c的文件，这是1个c语言的源程序，我们知道c语言的源程序其实就是一个文本文件，用命令 cat hello.c 显示这个文件的内容，可以看到它只是简单的显示 hello world 这个信息而已。</p>
-</li>
-<li>
-<p>hello.c虽然是个c语言的程序文件，但它并不能直接被计算机运行，如果要让它可以运行，我们需要用编译器把它编译成计算机可以运行的机器码（其实就是计算机可以理解的一堆数字），所以我们用 gcc hello.c 编译这个源程序，然后再用 ls -l 命令查看这个目录下的文件，发现多了个 a.out 的文件，这个就是编译器生成的可执行的程序文件。需要注意的有以下几点。</p>
+        <p>我们在linux的终端窗口下,输入命令或者运行程序的时候,会发现有些程序直接输入程序名就可以运行,有些程序必须要输入完整的路径才行,这到底是怎么回事呢?要把这个事情说清楚，还是需要先了解一点背景知识。 <span id="more"></span> 以下是我们实际操作的屏幕截屏，我们看看它做了什么，红框标注的4个步骤： <img src="/img/linux_run.png" /> 1. 首先用 pwd 命令查看当前目录，显示为 /home/blog</p>
+<ol start="2" type="1">
+<li><p>用 ls -l 命令查看当前目录的文件及相关信息，可以看到只有1个hello.c的文件，这是1个c语言的源程序，我们知道c语言的源程序其实就是一个文本文件，用命令 cat hello.c 显示这个文件的内容，可以看到它只是简单的显示 hello world 这个信息而已。</p></li>
+<li><p>hello.c虽然是个c语言的程序文件，但它并不能直接被计算机运行，如果要让它可以运行，我们需要用编译器把它编译成计算机可以运行的机器码（其实就是计算机可以理解的一堆数字），所以我们用 gcc hello.c 编译这个源程序，然后再用 ls -l 命令查看这个目录下的文件，发现多了个 a.out 的文件，这个就是编译器生成的可执行的程序文件。需要注意的有以下几点。</p>
 <ul>
 <li>我们查看这个文件前面的权限标记，发现它和 hello.c 的源程序相比，文件权限多个“x”，这个就是可执行程序的权限，所以和window不同，linux系统下是用权限来管理程序是否能够执行，如果有执行权限，操作系统就可以运行它，没有的话就不能被执行，和window系统不同，在linux环境下，任何文件后缀都可以是可执行文件，甚至你把某个可执行文件后缀改成 txt 也是可以正常运行的，当然这样做除了造成别人的困扰外，没有任何意义。</li>
 <li>文件的可执行权限并不表示这个文件是真正可以执行的，例如你把一个真正的文本文件属性改成“x”，然后执行它，操作系统发现它无法运行后会直接报错。文件的权限设置可以用 chmod 命令，这里就不细说了。</li>
-</ul>
-</li>
-<li>
-<p>现在我们知道 a.out 是可执行的文件，我们尝试运行它</p>
+</ul></li>
+<li><p>现在我们知道 a.out 是可执行的文件，我们尝试运行它</p>
 <ul>
-<li>先直接输入 a.out ，结果报错“bash: a.out:command not found&quot;，这样看来直接输入文件名是不行的，这个错误信息我们后面还会解释，这里先不管它了。</li>
+<li>先直接输入 a.out ，结果报错“bash: a.out:command not found"，这样看来直接输入文件名是不行的，这个错误信息我们后面还会解释，这里先不管它了。</li>
 <li>直接输入完整的路径名 /home/blog/a.out ，程序正确运行，显示 hello world，看来对一个可执行程序来说，输入它的完整路径名就可以直接运行它。</li>
-<li>既然输入可执行文件的完整路径名就可以运行，那很正常的我们也能想到，在当前目录下我们其实可以直接用 ./a.out 或者用 ~/a.out 来运行这个程序了，因为在终端环境下，符号“.”就是当前目录的简写，符号“~”就是当前用户的主目录的简写，这里我们的用户是blog，它的主目录就是 /home/blog ,当然如果要执行上一级目录的某个程序，用简写“..&quot;也是可以的。</li>
-</ul>
-</li>
+<li>既然输入可执行文件的完整路径名就可以运行，那很正常的我们也能想到，在当前目录下我们其实可以直接用 ./a.out 或者用 ~/a.out 来运行这个程序了，因为在终端环境下，符号“.”就是当前目录的简写，符号“~”就是当前用户的主目录的简写，这里我们的用户是blog，它的主目录就是 /home/blog ,当然如果要执行上一级目录的某个程序，用简写“.."也是可以的。</li>
+</ul></li>
 </ol>
 <p><strong>总结一下，linux环境下，如果一个文件具有执行权限，同时又确实是一个可以执行的程序，我们输入这个文件的完整路径名就可以运行了。还有就是这里虽然说的是linux的内容，但是对unix类的操作系统，例如 mac os来说，其实也是一样的</strong></p>
 
@@ -374,6 +362,12 @@
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.sourcegcdn.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 
